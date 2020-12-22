@@ -1,20 +1,23 @@
+cat README.md
 # Partner Demo Kit
 
-[한글](readme-lang/README-KO.md)
+Updated : Dec 21, 2020
+
+- [한글](readme-lang/README-KO.md)
+- [日本語READMEはこちら](readme-lang/README-JA.md)
 
 **Table of Contents**
 
-- [Introduction](#introduction)
-- [Get Started](#get-started)
-  1. [Install Fusion](#1-install-fusion)
-  2. [Prepare Fusion App Template](#2-prepare-fusion-app-template)
-  3. [Import Fusion App Template](#3-import-fusion-app-template)
-  4. [Crawl Web Data](#4-crawl-web-data)
-  5. [Generate Signals](#5-generate-signals)
-  6. [Generate Recommendations](#6-generate-recommendations)
-  7. [Start App Studio](#7-start-app-studio)
-- [Additional Resources]()
-  * [Jupyter Notebook Examples](#jupyter-notebook-examples) (To be added at a later date)
+- [Partner Demo Kit](#partner-demo-kit)
+  - [Introduction](#introduction)
+  - [Get Started](#get-started)
+    - [1. Install Fusion](#1-install-fusion)
+    - [2. Prepare Fusion App Template](#2-prepare-fusion-app-template)
+    - [3. Import Fusion App Template](#3-import-fusion-app-template)
+    - [4. Crawl Web Data](#4-crawl-web-data)
+    - [5. Generate Signals](#5-generate-signals)
+    - [6. Generate Recommendations](#6-generate-recommendations)
+    - [7. Start App Studio](#7-start-app-studio)
 
 ___
 
@@ -65,7 +68,7 @@ For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-    The setup script in the previous stage should have modified the contents of the [objects.json](./fusion-app/partnerkit/object.json) file to change all occurences of the Fusion App name from `partnerkit` to what you had defined. 
+    The setup script in the previous stage should have modified the contents of the [objects.json](./fusion-app/partnerkit/object.json) file to change all occurences of the Fusion App name from `partnerkit` to what you had defined.
 
     For example, if you ran:
 
@@ -75,7 +78,7 @@ For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](
     Your [objects.json](./fusion-app/partnerkit/object.json) file should have changed like so:
 
     | Before          | After         |
-    | :-------------: |:-------------:| 
+    | :-------------: |:-------------:|
     |![object.json before](readme-images/2-prepare-app-template/object-json-before.png)|![object.json after](readme-images/2-prepare-app-template/object-json-after.png)|
 
 ### 3. Import Fusion App Template
@@ -97,6 +100,8 @@ Create a new Fusion app by importing the app template.
 
 ### 4. Crawl Web Data
 
+This template includes the web crawling configuration from Lucidworks.com as the initial value.
+
 > If you are unfamiliar with Fusion Datasources and Jobs, see [Datasources](https://doc.lucidworks.com/fusion-connectors/5.3/concepts/datasources.html) and [Jobs](https://doc.lucidworks.com/fusion-server/5.3/concepts/jobs/index.html). <br>
 > Understanding of Fusion Datasources and Jobs is not required to get this demo set up, however.
 
@@ -112,7 +117,7 @@ Create a new Fusion app by importing the app template.
     <br><img src="readme-images/4-crawl-web-data/run-datasource-job.png" height="200" width="auto"/>
 6. Go to **Job History** to view the job log
     <br><img src="readme-images/4-crawl-web-data/datasource-job-log.png" height="200" width="auto"/>
-7. One the job ends, the status will change
+7. Once the job ends, the status will change
     <br><img src="readme-images/4-crawl-web-data/datasource-job-success.png" height="100" width="auto"/>
 8. Navigate to **QUERYING** > **Query Workbench**
     <br><img src="readme-images/4-crawl-web-data/nav-query-workbench.png" height="200" width="auto"/>
@@ -147,7 +152,7 @@ Create a new Fusion app by importing the app template.
     ```sh
     $ python3 sample-code/generate-signals-threaded.py
     ```
-    
+
 3. Go to the Fusion Admin UI, click on the **Collection Picker** and select **[FUSION-APP-NAME]_signals**
     <br><img src="readme-images/5-generate-signals/collection-selector.png" height="300" width="auto"/>
 
@@ -160,7 +165,7 @@ Create a new Fusion app by importing the app template.
 > If you are unfamiliar with Recommendations, see [Recommendations and Boosting Overview](https://doc.lucidworks.com/fusion-ai/5.3/concepts/boosting/index.html). <br>
 > Understanding of Recommendations is not required to get this demo set up, however.
 
-Using the signals that we generated earlier, we'll create some data aggregations and  recommendations to enhance search relevance and experience. Navigate to **COLLECTIONS** > **Jobs** run the jobs below in the given order. 
+Using the signals that we generated earlier, we'll create some data aggregations and  recommendations to enhance search relevance and experience. Navigate to **COLLECTIONS** > **Jobs** run the jobs below in the given order.
 
 **Note: Only proceed with the next job *after* the current one has completed successfully.**
 
