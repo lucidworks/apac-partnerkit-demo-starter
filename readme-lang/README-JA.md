@@ -3,7 +3,7 @@
 This is a Japanese Translation based on original readme updated on Dec 21, 2020.<br>
 [English README.md is here](../README.md)
 
-**~ もくじ ~**
+**もくじ**
 
 - [パートナー デモキット](#パートナー-デモキット)
   - [はじめに](#はじめに)
