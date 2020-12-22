@@ -32,7 +32,7 @@ Fusion 5 のインストールに関するインスタクションについて�
 
 ### 2. Fusion App テンプレートの準備
 
-1. chmod [setup.sh](./setup.sh) の実行
+1. chmod [setup.sh]../setup.sh) の実行
 
     `setup.sh` ファイルに実行権を付与する。
 
@@ -40,7 +40,7 @@ Fusion 5 のインストールに関するインスタクションについて�
     chmod +x setup.sh
     ```
 
-2. [setup.sh](./setup.sh) スクリプトの実行
+2. [setup.sh]../setup.sh) スクリプトの実行
 
     `setup.sh`スクリプトは、環境に従ってテンプレート内のファイルの必要なパラメータを変更するのみです。アプリやモジュールのインストール自体は実行しません。
 
@@ -65,14 +65,14 @@ Fusion 5 のインストールに関するインスタクションについて�
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-    この`setup.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json](./fusion-app/partnerkit/object.json) ファイルの内容を変更します。
+    この`setup.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json]../fusion-app/partnerkit/object.json) ファイルの内容を変更します。
 
     例えば、以下を実行した場合：
 
     ```sh
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
-    [objects.json](./fusion-app/partnerkit/object.json) は以下のように変更されます。
+    [objects.json]../fusion-app/partnerkit/object.json) は以下のように変更されます。
 
     | 変更前          | 変更後         |
     | :-------------: |:-------------:| 
@@ -124,7 +124,7 @@ App templateをインポートして、新しい fusion appを作成します。
 >シグナルに詳しくない場合は、[Signals Overview](https://doc.lucidworks.com/fusion-ai/5.3/concepts/signals-and-aggregations/signals/index.html)を参照してください。<br>
 >シグナルの深い理解は、このデモを設定するために必要ではありませんが、上記ドキュメントを一読してください。
 
-1. `sample-code`フォルダ内の[generate-signals-threaded.py](./sample-code/generate-signals-threaded.py)を編集し、以下の値を環境に合わせて編集してください:
+1. `sample-code`フォルダ内の[generate-signals-threaded.py]../sample-code/generate-signals-threaded.py)を編集し、以下の値を環境に合わせて編集してください:
 
     | 変数                    | 概要           |
     | :----------------       | :-------------------- |
