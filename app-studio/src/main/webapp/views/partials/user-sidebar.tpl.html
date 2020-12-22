@@ -1,0 +1,34 @@
+<!--
+This Platform configuration returns data like the popular platform above.
+However it should be using a profile which adds filtering for the user.
+This restricts the results to just the user's recent searches and clicks.
+-->
+<search:platform var="userRecentSearchesPlatform" conf="platforms.fusion.signals.recent_user_searches"></search:platform>
+<search:response var="userRecentSearches" query="noParamsWildQuery" platform="userRecentSearchesPlatform"></search:response>
+<search:query var="noParamsWildQuery" parameters="-" query="*"></search:query>
+
+<layout:block class="user-sidebar">
+    <p class="title"><span>{{name}}</span> <close class="icon-cancel"></close></p>
+    <hr>
+    <layout:box>
+    <h4><i class="icon-bookmark"></i> Your bookmarks</h4>
+    <collaborate:bookmark-list></collaborate:bookmark-list>
+    <br/><br/>
+    <h4><i class="icon-search"></i> Your saved searches</h4>
+    <collaborate:saved-query-list></collaborate:saved-query-list>
+    <br/><br/>
+    <h4><i class="icon-history"></i> Your recent searches</h4>
+    <search:result-list response="userRecentSearches" class="user-recentsearches">
+        <search:result styling="inline" >
+          <a class="icon-search" href="search?q={{ result | field:'query_s' | actual | encodeURIComponent }}">
+            <span class="value">{{ result | field:'query' | actual }}</span>
+          </a>
+        </search:result>
+    </search:result-list>
+    <search:no-results response="userRecentSearches">You have not performed any searches yet!</search:no-results>
+    <a class="poweredby-trigger" ng-click="$parent.$parent.toggle = !$parent.$parent.toggle">info</a>
+    </layout:box>
+    <layout:box styling="sm" class="user-sidebar-logout">
+      <a styling="button" ng-href="logout/" href="logout/">Logout</a></p>
+    </layout:box>
+</layout:block>

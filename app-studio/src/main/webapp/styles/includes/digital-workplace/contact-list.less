@@ -1,0 +1,70 @@
+// Contact Lists (dept, office, online status etc)
+// Click on a person, person page - profile card on the left and see a list of details with icons
+
+.contact-list .field {
+  line-height:1.75;
+  position:relative;
+  margin:@space-xs 0;
+  padding:0;
+}
+
+.contact-list .field p {
+  margin:0;
+  padding:0 0 0 @space-xxxxl;
+}
+
+.contact-list .tk-stl-title .field {
+  margin-bottom: 0;
+}
+
+.contact-list .tk-stl-title .field p {
+  padding:0;
+}
+
+.contact-list .field.department {
+  text-transform:capitalize;
+}
+
+.contact-list .contact-icon p:before {
+  content:'';
+  position:absolute;
+  left:0;
+  font-family: "Flaticon";
+  font-weight:100;
+  margin:0;
+  padding:0;
+}
+
+.contact-list .contact-icon.place p:before {content: "\f106";}
+.contact-list .contact-icon.email p:before {content: "\f107";}
+.contact-list .contact-icon.phone p:before {content: "\f109";}
+.contact-list .contact-icon.skype p:before {content: "\f10b";}
+.contact-list .contact-icon.dept p:before  {content: "\f105";}
+
+.contact-list .contact-icon.slack p:before {
+  content: "\f10a";
+  color: @color-tertiary;
+}
+
+.contact-list .contact-icon.time p:before {
+  content: "\e849";
+  font-family:"twigkit-basic";
+  font-size: @font-base-size;
+  margin: -1px 0 0 0;
+}
+
+.contact-list .contact-icon.online p:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 11px;
+  width: 7px;
+  height: 7px;
+  background: #2c95ff;
+  border: 2px solid @color-white;
+  border-radius: 50%;
+}
+
+.tk-stl-inline div.field.name {
+  display: inline-block;
+}

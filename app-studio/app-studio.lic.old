@@ -1,0 +1,25 @@
+#Thu Jul 25 18:38:35 EDT 2019
+property_workflow=*
+property_elastic_host=*
+creationDate=1564094315770
+property_host=*
+floatingExpiration=7776000000
+startDate=1564094315769
+version=2
+property_webservices=*
+property_solr=*
+property_social=*
+property_user=alex@twigkit.com
+signature=302c021436144fab3265fdb88ef6ca3ad213c769f53a16fc021439ceca0caa7ad72fde48c5022936930ab1c70af1
+property_media=*
+property_organisation=Lucidworks
+property_fusion=*
+property_activity=*
+property_security=*
+property_solr_host=*
+property_elastic=*
+property_federation=*
+property_cache=*
+property_fusion_host=*
+property_email=alex.molaei@lucidworks.com
+property_environment=non-production

@@ -1,0 +1,36 @@
+<!-- <search:platform var="userLogs" conf="platforms.fusion.signals.recent_user_searches"></search:platform>
+<search:query var="userLogsQuery" parameters="-" fields="query_s" sorts="-timestamp_tdt" max-results="10">
+  <query:filter field="user_id_s" value="{{user.name}}"></query:filter>
+</search:query>
+<search:response var="userQueries" platform="userLogs" query="userLogsQuery"></search:response> -->
+
+<!-- HEADER -->
+<layout:grid styling="header" class="header-landing">
+
+    <!-- logo -->
+    <layout:block xs="1-2" md="1-6" lg="1-4">
+        <layout:box padding-top="0.75">
+            <div class="tk-header-logo">
+                <layout:logo image="/assets/logo2.png" image-link="{{$root.contextPath}}" ></layout:logo>
+            </div>
+        </layout:box>
+    </layout:block>
+
+    <layout:block xs="1-2" md="5-6" lg="3-4">
+        <layout:box styling="pull-right">
+            <span id="open-user-sidebar" class="icon-user-circle-o"></span>
+        </layout:box>
+    </layout:block>
+
+    <layout:include file="views/partials/user-sidebar.tpl.html" name="{{$parent.$parent.user.name}}"></layout:include>
+
+</layout:grid>
+
+<!-- NAVBAR -->
+<!-- <layout:grid id="navbar">
+    <layout:block>
+        <search:tabs response="response" tabs="landing=Home,search=Search,dashboard=At a glance"
+                     styling="navbar" class="tk-stl-navbar"></search:tabs>
+
+    </layout:block>
+</layout:grid> -->

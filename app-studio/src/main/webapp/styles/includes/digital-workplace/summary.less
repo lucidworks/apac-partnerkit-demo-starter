@@ -1,0 +1,576 @@
+// ---------------------------------------------------------
+// Landing Page is the Summary
+// ---------------------------------------------------------
+
+.tk-stl-header.header-landing {
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+}
+
+.landing hr {
+    height: 1px;
+    margin-top: @space-xxl;
+    margin-right: @space-unit;
+    margin-bottom: @space-xxxxl;
+    margin-left: @space-unit;
+    border-color: @color-quinary;
+    background: @color-white;
+}
+
+// Banner
+.tk-stl-hero-banner {
+    padding: @space-lg 0 @space-xxxl 0;
+    margin-bottom:2em;
+    background: #11375c url(../../../assets/banner3.png) 41.5% 52.5%;
+}
+
+@media screen and (max-width: 48em) {
+    .tk-stl-hero-banner {
+    padding: @space-xxl 0 0 0;
+    margin-bottom: @space-xxl;
+    min-height: 165px;
+    }
+}
+
+// Banner Header
+.landing-top-bar {
+  width: 100%;
+  padding: @space-unit;
+  position: absolute;
+  top: 0;
+
+  .icon-user-o,
+  .icon-bookmark {
+    font-size: @font-size-lg;
+    cursor: pointer;
+  }
+}
+
+// Banner Search
+.tk-stl-hero-banner form {
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+    margin: @space-unit 0;
+    border-radius:7px;
+}
+
+.tk-stl-hero-banner .tk-stl-advanced-search .clear-search {
+  padding-top: 0.6em;
+  padding-right: @space-unit;
+  padding-bottom: 0.6em;
+  padding-left: @space-xs;
+}
+
+.tk-stl-hero-banner .tk-stl-advanced-search,
+.tk-stl-hero-banner .tk-stl-labelled-input.tk-stl-label-right input {
+  border-color: @color-white;
+  border-radius: 6px 0 0 6px;
+}
+
+.tk-stl-hero-banner form input {
+    border:1px solid white;
+    border-radius:6px;
+    padding: @space-sm @space-unit;
+}
+
+.tk-stl-hero-banner .tk-stl-search-input button {
+    font-size: @font-base-size;
+    border-radius:6px;
+    padding: @space-sm @space-lg;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+}
+
+.tk-stl-hero-banner .tk-stl-advanced-search .input {
+  padding-top: @space-sm;
+  padding-right: @space-unit;
+  padding-bottom: 0.65em;
+  padding-left: @space-unit;
+}
+
+.tk-stl-hero-banner .tk-stl-labelled-input.tk-stl-label-right .label:last-of-type .tk-stl-button {
+  padding-top: @space-sm;
+  padding-right: @space-lg;
+  padding-bottom: 0.65em;
+  padding-left: @space-lg;
+}
+
+.tk-stl-hero-banner .tk-stl-search-input .label .tk-stl-circle-loader-wrapper .tk-stl-circle-loader {
+  margin-top: @space-xs;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: (-@space-sm);
+}
+
+// Banner Popular Searches
+.popular-searches {
+  font-size: @font-base-size;
+}
+.popular-searches span {color: rgba(255,255,255,0.6);}
+.popular-searches a {color: rgba(255,255,255,0.85); text-decoration: none; margin-right:0.05em;}
+.popular-searches a:hover {color: rgba(255,255,255,1); text-decoration: underline;}
+
+// Links List
+.link-list {
+    border: 1px solid @color-quinary;
+    margin: 0;
+    padding: 0;
+    background-color: @color-white;
+    line-height: normal;
+    border-radius: 6px;
+}
+
+.link-list.first {
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom:0;
+}
+
+.link-list.last {
+    border-radius: 6px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top:0;
+}
+
+.link-list li {
+    list-style-type: none;
+    position: relative;
+    margin-bottom:0;
+}
+
+.link-list li .inner {
+    display: flex;
+    padding: @space-unit;
+    width: 100%;
+}
+
+.link-list li:first-child a {
+    border-top: none;
+    border-radius: 6px 6px 0 0;
+}
+
+.link-list li a:before {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    color: @color-white;
+    position: absolute;
+    right: calc(@space-sm);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: @font-size-xxl;
+    font-family: "twigkit-basic";
+    content: '\f105';
+}
+
+ul.link-list li:first-child:before {border-color: @color-white;}
+.link-list li a:hover:before {right:0.6em; color: @gray-3;}
+
+.link-list li img {
+    width: 19px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 25px;
+    vertical-align: middle;
+    border: 0;
+    margin-right: @space-sm;
+    xborder-radius: 6px;
+}
+
+.link-list li .circlecrop img {
+    width: 25px;
+    height: 25px;
+}
+
+.link-list li .summary {
+    align-items: center;
+    flex: 1;
+    display: flex;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 64em) {
+
+    .link-list li .summary {
+      flex-wrap: wrap;
+    }
+
+}
+
+.link-list .title,
+.link-list .title span {
+    font-weight: 500;
+    color:  @color-black;
+    margin-right: .35rem;
+}
+
+.link-list .tk-stl-label {color: @color-tertiary;}
+.link-list li:hover .title {color: @color-primary;}
+.link-list li:hover .title span {color: @color-primary;}
+
+.link-list .subtitle {
+    color: @color-tertiary;
+    min-width: 0;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: @space-xs;
+    font-size: @font-size-sm;
+}
+
+.link-list li a:focus,
+.link-list li a:hover {
+    text-decoration: none;
+    border-color: @color-quinary;
+    outline: 0;
+}
+
+.link-list li:before {
+    position: absolute;
+    border-top: 1px solid @color-quaternary;
+    content: '';
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+}
+
+// Calendar
+
+.event {
+  margin-top:@space-lg;
+  margin-right: 0;
+  margin-bottom: @space-unit;
+  margin-left: 0;
+  padding-left: @space-unit;
+}
+
+.event.descr {padding-left:0;}
+
+.event.first {
+  margin:@space-unit 0;
+}
+
+.event h5 {color: @color-tertiary; font-weight:400;}
+
+.event .icon-calendar:before {
+  margin: 0 @space-xs 0 0;
+  padding: 0;
+  color: @red-7;
+  font-size: @font-size-md;
+  line-height: 1.2;
+}
+
+.event i.icon-calendar {
+  position:relative;
+}
+
+.event i.icon-calendar:after {
+  content: '';
+  position: absolute;
+  left: 32%;
+  bottom: -17px;
+  width: 1px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+// Timeline Landing
+.landing .tk-stl-timeline-resultslist .result .tk-stl-panel {background:@color-white;}
+.landing .tk-stl-timeline-content:before {background: #ea1e62;}
+.landing .tk-stl-engineering .tk-stl-timeline-content:before {background: #8ac349;}
+
+.landing .tk-stl-engineering .tk-stl-panel .tk-stl-title p {
+    color: @color-black;
+    font-weight: 500;
+    font-size: @font-size-md;
+    letter-spacing: 0;
+    text-transform: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.landing .tk-stl-engineering .tk-stl-panel .tk-stl-label-inline {
+    margin-right:0;
+    font-size: @font-base-size;
+    color:#8ac349;
+}
+
+.landing .tk-stl-timeline-resultslist .tk-stl-panel a {
+  font-size: @font-base-size!important;
+}
+
+
+// Departments Panels
+.entity-panel {
+    position:relative;
+    border-left:0;
+    border-radius:6px;
+}
+
+.entity-panel .panel-link {padding:0;}
+
+.entity-panel .panel-link a {
+    display:block;
+    padding:@space-unit;
+}
+
+.entity-panel:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 6px 0 0 6px;
+}
+
+.entity-panel.marketing:before,
+.department-marketing .dept-summary:before  {
+  background:@red-5;
+}
+
+.entity-panel.field-sales:before,
+.department-field-sales .dept-summary:before  {
+  background:@pink-5;
+}
+
+.entity-panel.professional-services:before,
+.department-professional-services .dept-summary:before {
+  background:@purple-5;
+}
+
+.entity-panel.sales-engineering:before,
+.department-sales-engineering .dept-summary:before  {
+  background:@deep-purple-5;
+}
+
+.entity-panel.support:before,
+.department-support .dept-summary:before {
+  background:@indigo-5;
+}
+
+.entity-panel.core-engineering:before,
+.department-core-engineering .dept-summary:before  {
+  background:@blue-5;
+}
+
+.entity-panel.solr-engineering:before,
+.department-solr-engineering .dept-summary:before  {
+  background:@light-blue-5;
+}
+
+.entity-panel.training-knowledge-services:before,
+.department-training-knowledge-services .dept-summary:before  {
+  background:@cyan-5;
+}
+
+.entity-panel.inside-sales:before,
+.department-inside-sales .dept-summary:before  {
+  background:@teal-5;
+}
+
+.entity-panel.finance-accounting:before,
+.department-finance-accounting .dept-summary:before  {
+  background:@green-5;
+}
+
+.entity-panel.data-retrieval-analytics:before,
+.department-data-retrieval-analytics .dept-summary:before  {
+  background:@cyan-6;
+}
+
+.entity-panel.customer-success:before,
+.department-customer-success .dept-summary:before  {
+  background:@light-green-5;
+}
+
+.entity-panel.hr-recruiting:before,
+.department-hr-recruiting .dept-summary:before  {
+  background:@lime-5;
+}
+
+.entity-panel.applications:before,
+.department-applications .dept-summary:before  {
+  background:@yellow-5;
+}
+
+.entity-panel.product-architecture:before,
+.department-product-architecture .dept-summary:before  {
+  background:@amber-5;
+}
+
+.entity-panel.customer-excellence-mgmt-ops:before,
+.department-customer-excellence-mgmt-ops .dept-summary:before  {
+  background:@orange-5;
+}
+
+.entity-panel.product-management:before,
+.department-product-management .dept-summary:before  {
+  background:@deep-orange-5;
+}
+
+.entity-panel.fusion-ui-engineering:before,
+.department-fusion-ui-engineering .dept-summary:before  {
+  background:@brown-5;
+}
+
+.entity-panel.partners-alliances:before,
+.department-partners-alliances .dept-summary:before  {
+  background:@red-6;
+}
+
+.entity-panel.sales-operations:before,
+.department-sales-operations .dept-summary:before  {
+  background:@pink-6;
+}
+
+.entity-panel.cloud-operations:before,
+.department-cloud-operations .dept-summary:before  {
+  background:@purple-5;
+}
+
+.entity-panel.data-science-engineering:before,
+.department-data-science-engineering .dept-summary:before  {
+  background:@purple-6;
+}
+
+.entity-panel.human-resources:before,
+.department-human-resources .dept-summary:before  {
+  background:@deep-purple-6;
+}
+
+.entity-panel.office-community:before,
+.department-office-community .dept-summary:before  {
+  background:@indigo-6;
+}
+
+.entity-panel.product-design:before,
+.department-product-design .dept-summary:before  {
+  background:@blue-6;
+}
+
+.entity-panel.information-technology:before,
+.department-information-technology .dept-summary:before  {
+  background:@light-blue-6;
+}
+
+.entity-panel.security:before,
+.department-security .dept-summary:before  {
+  background:@cyan-6;
+}
+
+.entity-panel.talent-acquisition:before,
+.department-talent-acquisition .dept-summary:before  {
+  background:@lime-5;
+}
+
+
+
+.entity-panel.slack:before {
+  background:dimgrey;
+}
+
+.entity-panel h4 {
+font-weight:500;
+padding:0;
+margin:0;
+}
+
+.entity-panel:hover h4 {color: @color-primary;}
+.entity-panel p {margin:0; color:@color-tertiary;}
+
+a.tk-stl-panel.tk-stl-panel-block-link.entity-panel:hover {
+    text-decoration:none;
+    border-color: @gray-3;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+
+.entity-panel:after {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    color: @color-white;
+    position: absolute;
+    right: calc(@space-sm);
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: inline-block;
+    font-size: 30px;
+    font-family: "twigkit-basic";
+    content: '\f105';
+}
+
+.entity-panel:hover:after {
+    right:0.6em;
+    color: @gray-3;
+}
+
+// You may be interested in
+.landing-recs .result-list {
+  margin-bottom:0;
+}
+
+p.flag.recommendation {
+  font-size: @font-size-xs;
+}
+
+// Now Popular
+.trending p {margin-top: 0;}
+
+// Title More link >
+a.more, a.more:hover {color:@color-tertiary; text-decoration:none;}
+
+a.more:after {
+    font-family: "twigkit-basic";
+    content: '\f105';
+    padding-left:@space-xs;
+    font-size:0.8em;
+}
+
+//
+.sub {
+    color: @color-tertiary;
+    font-weight: 400;
+}
+
+.trending-searches {
+  .result {
+    padding: 0 @space-xs;
+    width: unset;
+  }
+}
+
+.trending-documents {
+  .result {
+    padding: 0;
+    margin: 0;
+    // width: unset;
+  }
+}
+.more .tk-stl-pull-right {
+    color: @gray-1;
+    font-size: @font-size-sm;
+    // border: 1px solid #e8eaec;
+    padding: 4px 5px 3px 5px;
+    margin: 0.4em 0;
+    border-radius: 2px;
+    line-height: 1;
+    text-transform: capitalize;
+}

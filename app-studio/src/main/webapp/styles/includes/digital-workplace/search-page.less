@@ -1,0 +1,326 @@
+// ---------------------------------------------------------
+// Search Page
+// ---------------------------------------------------------
+
+// Tabs
+.tk-stl-tabs > li.active a {color:  @color-black;}
+.tk-stl-tabs > li.active:hover a {color:  @color-black; text-decoration: none;}
+
+// Sort
+.tk-stl-sortoptions-block {
+    justify-content: flex-end;
+    border-bottom:1px solid #d9d9d9;
+    padding: @space-xs 0;
+}
+
+.tk-stl-sortoptions li {margin:0;}
+
+.tk-stl-sortoptions li a {font-weight: 400;}
+
+// stats
+.response-statistics {
+    float: left;
+    font-size: @font-size-xs;
+    text-transform: uppercase;
+    margin-top: 0.65em;
+    margin-right: @space-unit;
+    margin-bottom: @space-unit;
+    margin-left: 0;
+    font-weight: 400;
+}
+
+.tk-stl-pagination-wrapper {margin: 0 0 @space-xxl 0;}
+
+.tk-stl-pagination-arrows > li.active {
+    cursor: text;
+    background-color: @color-quinary;
+    border-color: @color-quinary;
+    color: @color-black;
+}
+
+.tk-stl-pagination-arrows {border-color:@color-quinary;}
+.tk-stl-pagination-arrows > li a {color: @color-tertiary;}
+.tk-stl-pagination-arrows > li.active span,
+.tk-stl-pagination-arrows > li.active:hover {color: @color-black;}
+
+
+// ---------------------------------------------------------
+// Main Search Results
+// ---------------------------------------------------------
+
+
+.mainsearch {margin-top:@space-xxxl;}
+
+.results-panel {
+    margin: @space-xs 0;
+    xborder-right:5px solid red;
+}
+
+
+.results-panel .result {
+    margin:0 0 @space-xxl 0;
+    line-height: 1.5;
+    xborder-right:5px solid orange;
+}
+
+.results-panel p.title a {
+    color:@color-black;
+    font-weight:500;
+}
+
+.results-panel.results-docs  .result-list {
+    margin:0;
+    xborder-right:5px solid yellow;
+}
+
+/* Result titles */
+/* There are two kinds, because some use search:field and others don't... */
+
+.results-panel .result .tk-stl-title p,
+.results-panel .mocktitle {
+  font-size: @font-base-size;
+  margin:0;
+}
+
+.mocktitle a {color:@gray-8; font-weight:500;}
+.mocktitle a:hover {color:@blue-4; text-decoration:none;}
+
+.results-panel .tk-stl-description p {
+    color:@gray-5;
+    margin:0.15em 0;
+}
+
+/* ---------------- */
+/* Document Results */
+/* ---------------- */
+
+/* Label */
+.docresults .tk-stl-label {color:@gray-4;}
+
+/* Value */
+.docresults .tk-stl-label-inline {color:@gray-5;}
+.docresults .tk-stl-label-inline a {color:@blue-4;}
+
+// Classes to zero out padding when on mobile (so all boxes are flush)
+@media screen and (max-width: 35.5em) {
+  .docresults .pl1em {
+      padding-left:0;
+  }
+}
+
+/* -------------- */
+/* People Results */
+/* -------------- */
+
+.circlecrop img {border-radius:50%;}
+
+.profile-title_s p {
+  font-size: @font-base-size;
+}
+
+/* Experts Panel */
+
+.results-panel.experts-panel {
+border:0;
+margin:0 0 @space-xxxxl 0;
+padding:0;
+border-radius:6px;
+box-shadow: 0 1px 0 rgba(0,0,0,.175);
+background: @color-quaternary;
+}
+
+.results-panel.experts-panel ol.result-list {
+margin:0;
+padding: @space-unit;
+}
+
+.results-panel.experts-panel ol.result-list li {
+margin:0;
+padding:0;
+}
+
+.results-panel.experts-panel ol.result-list li .tk-stl-title p {margin:0;}
+
+
+.experts-panel .jobtitle p {
+    font-size: @font-size-md;
+    margin: 0;
+    font-weight: 500;
+}
+
+.experts-panel .tk-stl-meta {
+    display:block;
+   line-height:1;
+}
+
+.results-panel.experts-panel ol.result-list li .tk-stl-title p a {
+font-size: @font-size-lg;
+font-weight:600;
+}
+
+.results-panel.experts-panel span.online,
+.results-panel.experts-panel span.offline {
+    top:-0.4em;
+    position:relative;
+    font-size: 0.55em!important;
+}
+
+.tk-stl-shared.tk-stl-label-inline {
+    border:0px solid red;
+    margin:0;
+}
+
+/* in common */
+/* in common */
+.tk-stl-shared.tk-stl-label-inline p {
+display:none;
+}
+
+.tk-stl-shared.tk-stl-label-inline .tk-stl-label {
+display: inline-block;
+margin:0 0 0 0;
+padding:0;
+}
+
+.tk-stl-shared.tk-stl-label-inline .tk-stl-label:before {
+content:'!';
+font-family: "Flaticon";
+font-weight:100;
+margin-right:@space-sm;
+content: "\f103";
+color:@color-tertiary;
+}
+
+/* --------------------- */
+/* Youtube Resulst */
+/* --------------------- */
+.icon-youtube:before {color: @red-5;}
+
+
+
+/* --------------------- */
+/* Wikipanel             */
+/* --------------------- */
+
+.wikipanel {font-size: @font-base-size;}
+
+.wikipanel .result-list {margin-bottom:0;}
+
+.wikilogo {
+  padding-top: @space-unit;
+  padding-right: 0;
+  padding-bottom: @space-lg;
+  padding-left: 0;
+  margin:0 0 @space-lg 0;
+  border-bottom:1px solid @color-quinary;
+}
+
+.wikilogo img {width:60%;}
+
+p.wikilink {
+    margin: @space-xxxxl 0 0 0;
+    font-size: @font-size-xs;
+}
+
+/* --------------------- */
+
+.result * {word-break:break-word;}
+
+.result em {
+    font-weight:400;
+    font-style:normal;
+    border:0;
+    background: rgba(255, 242, 204, 0.4);
+    border-bottom: 1px solid #fff2cc;
+}
+
+.result .tk-stl-title em {font-weight:500;}
+
+// Result Title
+.result .tk-stl-title p {
+    margin-bottom:@space-xxs;
+    font-size: @font-base-size;
+    font-weight: 500;
+}
+
+// Result Description
+.result .tk-stl-title p a {
+    font-weight: 500;
+    color: @color-black;
+}
+
+.result .tk-stl-url a {
+    color: @green-5; // green
+    font-size: @font-base-size;
+}
+
+// Result Label
+.tk-stl-label {color: @color-secondary;}
+
+
+// Skills Result Capsules
+.results-panel .skills p a {
+    display:inline-block;
+    float:left;
+    margin:0 6px 6px 0;
+}
+
+.results-panel .skills p a:after {
+    content:',';
+    margin-left:0.1em;
+    color:@color-tertiary;
+}
+
+.results-panel .skills p:last-child a:after {
+    content:'';
+    margin-right:0;
+}
+
+.result .tk-stl-pull-right {
+  color: @gray-1;
+  padding: 4px 5px 3px 5px;
+  margin: 0.4em 0;
+  border-radius: 2px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+
+// Alertbox (0 results for X so I searched instead for Y )
+.tk-stl-alertbox {
+    margin: 0 0 @space-xxxxl 0;
+    border-color: rgb(255, 242, 204);
+    background: #fffaeb;
+}
+
+// Department Promos on search page (don't miss a thing)
+.standard-panel.dept-promo {margin: 1px 0 @space-xxl 0; padding: 0;}
+.standard-panel.dept-promo h4, .standard-panel.dept-promo p {margin:0; padding:0;}
+.standard-panel.dept-promo p {
+  color:@color-secondary;
+  font-size: @font-base-size;
+}
+
+.dept-promo a {
+  padding:@space-lg @space-xxl;
+  display:block;
+  border:1px solid transparent;
+}
+
+.dept-promo a:hover {text-decoration:none;}
+.dept-promo a:hover h4 {text-decoration:underline;}
+
+.standard-panel.dept-promo.marketing h4 {color:@pink-5;}
+.standard-panel.dept-promo.marketing { background-color: @pink-50; border: 1px solid @pink-50;}
+.standard-panel.dept-promo.engineering h4 {color:@light-green-5;}
+.standard-panel.dept-promo.engineering { background-color: @light-green-50; border: 1px solid @light-green-5;}
+.standard-panel.dept-promo.hr h4, .standard-panel.dept-promo.HR h4 {color:@teal-5;}
+.standard-panel.dept-promo.hr, .standard-panel.dept-promo.HR { background-color: @teal-50; border: 1px solid @teal-50;}
+.standard-panel.dept-promo.development h4 {color:@purple-5;}
+.standard-panel.dept-promo.development { background-color: @purple-50; border: 1px solid @purple-50;}
+.standard-panel.dept-promo.support h4 {color:@amber-5;}
+.standard-panel.dept-promo.support { background-color: @amber-50; border: 1px solid @amber-50;}
+.standard-panel.dept-promo.management h4 {color:@cyan-5;}
+.standard-panel.dept-promo.management { background-color: @cyan-50; border: 1px solid @cyan-50;}
+.standard-panel.dept-promo.slack h4 {color:grey;}
+.standard-panel.dept-promo.slack { background-color: @cyan-50; border: 1px solid @cyan-50;}

@@ -1,0 +1,94 @@
+// ---------------------------------------------------------
+// Powered by popovers (unused feature, but could be a tour)
+// ---------------------------------------------------------
+
+// COMMENT THIS OUT TO USE:
+
+//a.poweredby-trigger {display:none!important;}
+//
+//  <div class="poweredby-pop-outer">
+//      <div class="poweredby-pop">
+//          <h5>Powered by</h5>
+//          <img src="/assets/fusion-ai.png">
+//      </div>
+//  </div>
+
+a.poweredby-trigger {
+  position:absolute;
+  bottom:@space-sm;
+  right:@space-xxl;
+  color: @gray-2;
+  padding: @space-xs 0;
+  text-shadow:none;
+}
+
+.poweredby.on .poweredby-pop {
+  /* visibility: visible; */
+  opacity: 1;
+  top: -125px;
+  z-index: 10;
+}
+
+.poweredby .poweredby-pop-outer {
+  position: relative;
+}
+
+.poweredby .poweredby-pop {
+  position: absolute;
+  text-align:center;
+  width: 200px;
+  top: -100px;
+  background: white;
+  border-radius: 6px;
+  padding: 0 0 @space-md 0;
+  /* visibility: hidden; */
+  opacity: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  z-index: -1;
+  box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.poweredby .poweredby-pop * {
+  border-radius: 6px;
+}
+
+.poweredby .poweredby-pop p {
+  margin-bottom:0;
+}
+
+.poweredby .poweredby-pop img {
+  margin: 0;
+  width: 450px;
+}
+
+.poweredby .poweredby-pop:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 22px;
+  background: white;
+}
+
+.poweredby .poweredby-pop:after {
+  content: "";
+  z-index: -1;
+  width: 16px;
+  height: 16px;
+  background: @color-white;
+  margin-left: -10px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-shadow: 0px 5px 20px rgba(0,0,0,.2);
+}

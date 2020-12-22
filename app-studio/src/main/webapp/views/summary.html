@@ -1,0 +1,265 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<!--
+A search query to use to retrieve metrics and unfiltered data.
+It ignores input parameters and sends an unrestricted wildcard query
+-->
+<search:query var="noParamsWildQuery" parameters="-" query="*"></search:query>
+
+<!--
+This Platform configuration should return the search queries to visualize in the tag/word cloud
+-->
+<search:platform var="trendingSearchesPlatform" conf="platforms.fusion.signals.top_searches_tagcloud"></search:platform>
+<search:response var="trendingSearchesResponse" query="noParamsWildQuery" platform="trendingSearchesPlatform"></search:response>
+<!-- Tag Cloud query-->
+<!-- <search:query var="tagcloudQuery" parameters="q"></search:query> -->
+
+<!--
+This Platform configuration should return popular query and click signals.
+Document and person metadata from the main data collection is joined onto the signal result.
+-->
+<search:platform var="topGlobalClicksPlatform" conf="platforms.fusion.signals.top_global_clicks"></search:platform>
+<search:response var="topGlobalClicksResponse" query="noParamsWildQuery" platform="topGlobalClicksPlatform"></search:response>
+
+<!--
+This Platform configuration should return the user's most popular searches using faceting
+-->
+<search:platform var="topSearchesPlatform" conf="platforms.fusion.signals.top_user_searches"></search:platform>
+<search:response var="topSearches" query="noParamsWildQuery" platform="topSearchesPlatform"></search:response>
+
+<!--
+These Platform configurations returns data like the popular platform above.
+However it should be using a profile which adds filtering for the user.
+This restricts the results to just the user's clicks.
+-->
+
+<search:platform var="userRecentClicksPlatform" conf="platforms.fusion.signals.recent_user_clicks"></search:platform>
+<search:response var="userRecentClicks" query="noParamsWildQuery" platform="userRecentClicksPlatform"></search:response>
+
+<!--
+This platform configuration returns information for item recommendations for user
+-->
+<search:platform var="userRecsPlatform" conf="platforms.fusion.recommendations.items_for_user"></search:platform>
+<search:query var="userRecsQuery" parameters="*" rpp="6"></search:query>
+<search:response var="userRecsResponse" platform="userRecsPlatform" query="userRecsQuery">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+
+<search:query var="itemContentRecsQuery" parameters="*" rpp="10">
+        <query:filter field="itemId" value="{{pageId}}"></query:filter>
+        <!-- <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter> -->
+    </search:query>
+
+<!-- Pretty query -->
+<search:query var="query" parameters="*"></search:query>
+
+<track:query query="query" path="/summary" page-title="Summary" ng-if="query"></track:query>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<!-- HEADER -->
+<layout:include file="views/partials/header-landing.tpl.html" action="search" ></layout:include>
+
+<div id="summaryPage" class="landing poweredby" ng-class="{'on':toggle}">
+    <!--  Banner Section  -->
+    <layout:grid>
+        <layout:block styling="hero-banner center-content">
+            <!--  Banner Search  -->
+            <layout:grid styling="center-content">
+                <layout:block xs="4-5" md="1-2" lg="2-5">
+
+                    <br styling="hide-xs hide-sm">
+                    <h2 styling="text-white hide-xs hide-sm">How can we help?</h2>
+
+                    <layout:include file="views/partials/typeahead.tpl.html" action="search" instantplatform="fusion"></layout:include>
+
+                    <!-- Your most searched for items (line below search area) -->
+                    <track:clicks query="query" type="click-landing-popular-search" styling="hide-xs hide-sm">
+                        <p class="popular-searches" padding-top="05">
+                            <span>You most frequently search for:&nbsp;&nbsp;</span>
+                            <a ng-repeat="q in topSearches.facets['query_s'].filters" href="search?q={{q | actual}}">{{q | actual}}<span ng-if="!$last">, </span></a>
+                        </p>
+                    </track:clicks>
+                </layout:block>
+            </layout:grid>
+        </layout:block>
+    </layout:grid>
+
+    <!--  Page Section: Word Cloud + Items for User recommendation  -->
+    <layout:grid padding-top="2">
+        <layout:block md="3-4" md-offset="1-8">
+            <layout:grid>
+                <layout:block lg="1-2">
+                    <layout:box>
+                        <div class="header-icon-wrap">
+                            <div>
+                                <h3>Popular Searches</h3>
+                            </div>
+                        </div>
+                        <div class="event descr first">
+                            <h5 style="display:inline-block;">
+                                Here are the globally popular searches:
+                                <widget:popover direction="right" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                                    <popover-trigger>
+                                        <button styling="button">i</button>
+                                    </popover-trigger>
+                                    <popover-content>
+                                        <p>Top most searched for words/phrases by all users.</p>
+                                    </popover-content>
+                                </widget:popover>
+                            </h5>
+                        </div>
+                        <word-cloud></word-cloud>
+                        <div id="tagCloud" style="width: 100%;height: 80%;margin: 0;padding: 0;"></div>
+                        <!-- <chart:tagcloud
+                            response="trendingSearchesResponse"
+                            action="search"
+                            query="tagcloudQuery"
+                            facet-name="query_alias"
+                            show="50">
+                        </chart:tagcloud> -->
+                    </layout:box>
+                </layout:block>
+                <layout:block lg="1-2">
+                    <layout:box>
+                        <div class="header-icon-wrap">
+                            <div>
+                                <h3>Recommended Documents for <span style="color:#2482e1;">{{user.name}}</span></h3>
+                            </div>
+                        </div>
+                        <div class="event descr first">
+                            <h5 style="display:inline-block;">
+                                <strong>Items for User</strong> Recommendation:
+                                <widget:popover direction="right" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                                    <popover-trigger>
+                                        <button styling="button">i</button>
+                                    </popover-trigger>
+                                    <popover-content>
+                                        <p>Signal-based document recommendations for the logged in user. <br><br>The recommendations are generated using Fusion AI's Bayesian Personalized Ranking (BPR) Recommender.</p>
+                                    </popover-content>
+                                </widget:popover>
+                            </h5>
+                        </div>
+                        <!-- <track:clicks query="userRecsQuery"> -->
+                            <search:result-list response="userRecsResponse" styling="cards-sm-1">
+                                <search:result styling="card-shadow">
+                                    <a class="link" href="{{result | field:'url_s' | actual}}" target="_blank">
+                                        <div class="flex items-center">
+                                            <div class="media-list-item-sm">
+                                                <media:image result="result" styling="image-fill" field-name="extension" field-prefix="{{$root.contextPath + 'extras/icons/'}}" field-suffix=".png" fallback-image-url="extras/icons/file.png" image-service-url=""></media:image>
+                                            </div>
+                                            <div class="media-list-content flex justify-between w-100 pl3">
+                                                <search:field name="title" label="" styling="title" show="1"></search:field>
+                                                <span class="chip">{{result | field:'source' | actual}}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </search:result>
+                            </search:result-list>
+                        <!-- </track:clicks> -->
+                        </layout:box>
+                </layout:block>
+            </layout:grid>
+        </layout:block>
+    </layout:grid>
+
+    <!--  Page Section: User's recently viewed documents  -->
+    <layout:grid>
+        <layout:block md="3-4" md-offset="1-8">
+
+            <layout:grid>
+                <!-- <layout:block md="13-24"> -->
+                <layout:block>
+                    <layout:box padding-bottom="0">
+                        <h3 padding-top="05">Jump right back in&nbsp;&nbsp;&mdash;</h3>
+                        <div class="event descr first">
+                            <h5 style="display:inline-block;">
+                                Here are your recent<span styling="hide-md">ly viewed </span> documents:
+                                <widget:popover direction="right" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                                    <popover-trigger>
+                                        <button styling="button">i</button>
+                                    </popover-trigger>
+                                    <popover-content>
+                                        <p>Recently viewed documents by the logged in user.<br><br>Uses raw signals.</p>
+                                    </popover-content>
+                                </widget:popover>
+                            </h5>
+                        </div>
+                        <track:clicks query="query" type="click-landing-recent-search">
+                            <search:result-list response="userRecentClicks" class="media-list bg-white ba br6 ">
+                              <search:result>
+                                <a class="link" href="{{result | field:'url_s' | actual}}" target="_blank">
+                                    <div class="flex items-center pa3 bb">
+                                        <div class="media-list-item-md">
+                                          <media:image result="result.related[0].result" class="" styling="image-fill" field-name="extension" field-prefix="{{$root.contextPath + 'extras/icons/'}}" field-suffix=".png" fallback-image-url="extras/icons/file.png" image-service-url=""></media:image>
+                                        </div>
+                                        <div class="media-list-content flex justify-between w-100 pl3">
+                                            <search:field name="title" label="" styling="title" show="1"></search:field>
+                                            <span class="chip">{{result | field:'source' | actual}}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                              </search:result>
+                            </search:result-list>
+                        </track:clicks>
+                    </layout:box>
+                </layout:block>
+
+            </layout:grid>
+
+            <hr>
+        </layout:block>
+    </layout:grid>
+
+    <!--  Page Section: Globally popular documents  -->
+    <layout:grid class="trending">
+        <layout:block md="3-4" md-offset="1-8">
+
+            <layout:grid>
+                <layout:block>
+                    <layout:box padding-bottom="0">
+                        <h3 padding-top="05">Popular Documents&nbsp;&nbsp;&mdash;</h3>
+                        <div class="event descr first">
+                            <h5 style="display:inline-block">
+                                Here are the globally popular documents:
+                                <widget:popover direction="right" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                                    <popover-trigger>
+                                        <button styling="button">i</button>
+                                    </popover-trigger>
+                                    <popover-content>
+                                        <p>Top most viewed documents by all users.<br><br>Uses aggregated signals.</p>
+                                    </popover-content>
+                                </widget:popover>
+                            </h5>
+                        </div>
+                        <search:result-list response="topGlobalClicksResponse" class="media-list bg-white ba br6 ">
+                            <search:result>
+                              <a class="link" href="{{result | field:'url_s' | actual}}" target="_blank">
+                                <div class="flex items-center pa3 bb">
+                                    <div class="media-list-item-md">
+                                        <media:image result="result.related[0].result" class="" styling="image-fill" field-name="extension" field-prefix="{{$root.contextPath + 'extras/icons/'}}" field-suffix=".png" fallback-image-url="extras/icons/file.png" image-service-url=""></media:image>
+                                    </div>
+                                    <div class="media-list-content flex justify-between w-100 pl3">
+                                        <search:field name="title" label="" styling="title" show="1"></search:field>
+                                        <span class="chip">{{result | field:'source' | actual}}</span>
+                                    </div>
+                                </div>
+                              </a>
+                            </search:result>
+                        </search:result-list>
+                    </layout:box>
+                </layout:block>
+
+            </layout:grid>
+
+            <br><br><br>
+
+        </layout:block>
+    </layout:grid>
+
+</div>

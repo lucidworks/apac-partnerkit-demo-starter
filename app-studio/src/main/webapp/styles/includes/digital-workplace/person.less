@@ -1,0 +1,166 @@
+// ---------------------------------------------------------
+// Person detail specific
+// ---------------------------------------------------------
+
+// Person Summary
+
+.person-thumb {
+  text-align:center;
+  padding:0;
+}
+
+.person-thumb img {
+  width:100%;
+  margin:0 0 @space-lg 0;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+}
+
+.person-thumb .tk-stl-title p {
+  font-weight:600;
+  color: @color-black;
+  font-size: @font-size-xl;
+}
+
+.person-thumb p {
+  font-weight:400;
+  color:@color-tertiary;
+  font-size: @font-size-md;
+}
+
+// Person Contact Info
+
+.person-info {
+  font-size: @font-base-size;
+  font-weight:400;
+}
+
+.person-info a {
+  color: @color-tertiary;
+}
+
+.person-info a:hover {
+  color:@color-primary;
+  text-decoration:none;
+}
+
+
+.standard-panel.stacked.person-info {
+  margin-bottom: @space-xxl;
+  border-radius: 6px;
+}
+
+// Slack Online
+
+span.online,
+span.offline,
+span.external,
+span.inactive{
+  font-size: @font-size-xs;
+  visibility:hidden;
+  // white-space: nowrap;
+}
+
+span.online:before,
+span.offline:before,
+span.external:before,
+span.inactive:before {
+content:'Online';
+  border-radius: 4px;
+  visibility:visible;
+  border: 1px solid;
+  color: @green-5;
+  padding: 1px 4px;
+  margin-left:3px;
+  border-radius: 4px;
+  font-weight:500;
+}
+
+span.offline:before {
+content:'Offline';
+  color: @red-5;
+}
+
+span.inactive:before {
+  content:'Inactive';
+  color: @red-5;
+}
+
+span.external:before {
+  content:'External';
+}
+
+span.inactive {
+  content:'Inactive';
+  color: @red-5;
+}
+
+// In Common
+
+.person-incommon {
+  font-size: @font-base-size;
+  font-weight:400;
+  color:@color-tertiary;
+}
+
+.person-incommon ul {
+  margin: @space-xs 0 @space-lg 0;
+  padding:0;
+  list-style:none;
+}
+
+.person-incommon ul li {
+  margin:@space-xs 0;
+  padding:0 0 0 @space-xxxxl;
+  list-style:none;
+  position: relative;
+}
+
+.person-incommon ul li:before {
+  position:absolute;
+  content: "\f103";
+  color:@color-tertiary;
+  font-family: "Flaticon";
+  font-weight:100;
+  position: absolute;
+  top: 1px;
+  left: 0;
+}
+
+.person-incommon ul li a {
+  color:@color-black;
+}
+
+.person-incommon ul li a:hover,
+.person-incommon ul li a:active {
+  color:@color-primary;
+}
+
+.person-incommon ul li.gambit {
+  margin: @space-sm 0 @space-unit 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  font-weight:600;
+}
+
+.person-incommon ul li.gambit:before {
+  content:'';
+}
+
+.stacked.person-info .social-inline.tk-stl-pull-right {
+  padding-right: 0;
+  .icon-bookmark:before,.icon-bookmark-empty:before {
+    margin-right: 0;
+    text-align: right;
+  }
+}
+
+.contact-list .field.title p {
+  padding-left: 0;
+  font-size: 1em;
+}
+
+.contact-list .field.external p {
+  color: @green-5;
+}

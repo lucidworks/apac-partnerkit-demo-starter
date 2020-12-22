@@ -1,0 +1,181 @@
+/* --------------------- */
+/* Slack Channel Results */
+/* --------------------- */
+
+/* Slack round Channel 'Image' */
+
+.results-panel .icon-slack:before,
+.department .standard-panel .icon-slack:before {
+  padding:10px;
+  margin:0;
+  border-radius:50%;
+  background:@color-quinary;
+}
+
+.tk-stl-timeline-time .icon-slack:before {
+  margin-left: 0;
+  margin-right: 1.2em;
+  width: 0;
+}
+
+/* --------------------- */
+/* Slack Message Results */
+/* --------------------- */
+
+/* Slack Conversations Sidepanel */
+
+.slack-msgcontent {
+  border:1px solid rgba(0,0,0,0.075);
+  background:@color-white;
+  padding:15px 10px 10px 10px;
+  font-size: @font-base-size;
+  border-radius:4px;
+  border-bottom-left-radius:0;
+  border-bottom-right-radius:0;
+  margin-top:3px;
+  position:relative;
+}
+
+.slack-msgfooter {
+  border:1px solid rgba(0,0,0,0.05);
+  border-top:0;
+  background:rgba(0,0,0,0.02);
+  padding:5px 10px;
+  font-size: @font-base-size;
+  border-radius:4px;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+}
+
+.slack-msgcontent:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5px;
+  right: 5px;
+  height: 8px;
+  background: @color-white;
+  z-index:1;
+}
+
+.slack-msgcontent:before {
+  border:1px solid rgba(0,0,0,0.1);
+  content:'';
+  z-index: 0;
+  width: 10px;
+  height: 10px;
+  background: @color-white;
+  position: absolute;
+  top: -6px;
+  left: 31px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slack-msgheader .tk-stl-pull-right {
+  margin-top:5px;
+}
+
+.slack-msgheader .tk-stl-pull-right a {
+  color:#606060;
+}
+
+.slack-msgfooter .tk-stl-pull-right {
+  margin:0;
+  padding:0;
+}
+
+// ---------------------------------------------------------
+// Slack Conversation Timeline detail page
+// ---------------------------------------------------------
+
+.standard-panel.no-borders ul.facet-list {
+  border:0;
+  padding:0;
+}
+
+.tk-stl-timeline-resultslist .result {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tk-stl-timeline-resultslist .result .tk-stl-panel {
+  border-radius: 6px;
+  background: @color-quaternary;
+}
+
+.tk-stl-timeline-resultslist .result .tk-stl-panel a {
+  color:@color-secondary;
+  font-size: @font-size-md;
+}
+
+.tk-stl-timeline-content {
+  border-left: 3px solid @color-quinary;
+}
+
+.tk-stl-timeline-content:before {
+  background:#d6d6d6;
+}
+
+@media screen and (max-width: 48em) {
+
+    .tk-stl-timeline-content {
+      border-left: 0px solid #e8e9ea;
+    }
+
+    .tk-stl-timeline-content:before {
+      background: @color-quaternary;
+      border: 1px solid @color-quaternary;
+      top: 0.45em;
+    }
+
+    .landing .tk-stl-timeline-content:before,
+    .landing .tk-stl-engineering .tk-stl-timeline-content:before {
+      background: @color-white;
+    }
+
+}
+
+.tk-stl-timeline-resultslist .result .tk-stl-panel .footer {
+  font-size: @font-size-xs;
+  border-top:1px solid @color-quinary;
+  margin:1.3em 0 -1em 0;
+  padding: @space-unit 0 0 0;
+  display:block;
+}
+
+.tk-stl-timeline-resultslist .result .tk-stl-panel .footer a.jump {
+  color:@color-primary;
+}
+
+.tk-stl-pt2-5 {
+  padding-top: 2.375em;
+}
+
+.searchwithin form {
+  margin-top:-6px;
+}
+
+.searchwithin form input {
+  padding: 0.2em @space-xs;
+}
+
+.searchwithin form .tk-stl-button {
+  padding: @space-xs @space-sm;
+  background: @color-quinary;
+  border-color: rgba(0,0,0,0.1);
+  color: @color-tertiary;
+}
+
+.searchwithin form .tk-stl-button:hover {
+  padding: @space-xs @space-sm;
+  background: @color-primary;
+  color: @color-white;
+}
+
+.bb {
+  border-bottom:1px solid @color-quinary;
+}

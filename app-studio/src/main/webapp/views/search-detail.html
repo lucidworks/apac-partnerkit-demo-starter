@@ -1,0 +1,197 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<!-- Decode document id and store in pageId -->
+<id-decoder></id-decoder>
+
+<!-- Define search platform(s) to fetch data from -->
+<search:platform var="platform" conf="platforms.fusion.data.documents.search"></search:platform>
+<!-- Items for item recommendation generated using ALS Recommender (using signals) -->
+<search:platform var="itemRecsPlatform" conf="platforms.fusion.recommendations.items_for_item"></search:platform>
+<!-- Items for item recommendation generated using Content based Recommender -->
+<search:platform var="itemContentRecsPlatform" conf="platforms.fusion.recommendations.items_for_item_content"></search:platform>
+
+<!-- This query will retrieve the result that matches the parameter in the url in the 'id' field-->
+<!-- E.g. result/abc123 -->
+<!-- Will load this view with data for id=abc123 -->
+<search:query var="query" parameters="*">
+    <query:filter field="id" value="{{pageId}}"></query:filter>
+</search:query>
+
+<search:response var="response" platform="platform" query="query">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+<!--Get author info from result depending on source-->
+<lifecycle:required object="response">
+
+    <!-- Documents by same author -->
+    <!-- <search:query var="docsAuthorQuery" parameters="*" facets="" rpp="3">
+        <query:filter field="Author_str" value="{{response | result:0 | field:'author' | actual}}"></query:filter>
+        <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter>
+    </search:query> -->
+
+    <!-- Items for item recommendation (ALS) -->
+    <search:query var="itemRecsQuery" parameters="-" rpp="3">
+        <query:custom name="itemId" value="{{pageId}}"></query:custom>
+        <!-- <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter> -->
+    </search:query>
+    <search:response var="itemRecsResponse" platform="itemRecsPlatform" query="itemRecsQuery"></search:response>
+
+    <!-- Items for item recommendation (Content-based) -->
+    <search:query var="itemContentRecsQuery" parameters="*" rpp="10">
+        <query:filter field="itemId" value="{{pageId}}"></query:filter>
+        <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter>
+    </search:query>
+    <search:response var="itemContentRecsResponse" platform="itemContentRecsPlatform" query="itemContentRecsQuery"></search:response>
+
+</lifecycle:required>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="Enterprise Search"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header-detail.tpl.html" action="search"></layout:include>
+
+<!--  Page Centering  -->
+<layout:animate animation="animate-fadeInUp" on="response" layout-grid class="detail">
+    <layout:block md="22-24" md-offset="1-24">
+
+        <layout:grid ng-if="response | result">
+            <!-- Main Block -->
+            <!-- ---------- -->
+            <layout:block sm="1-1" lg="3-4" padding-right="2" class="nopad-64">
+
+                <!-- Panel: Document Summary -->
+                <div class="standard-panel doc-details first">
+                    <layout:grid>
+                        <layout:block lg="2-3" xl="4-5">
+                            <ul class="result-list">
+                                <search:result result="response.results[0].result">
+                                    <search:field name="source" label="" styling="label-inline" class="result-source"></search:field>
+                                    <h2 padding-top="05">
+                                        <span>{{result | field:'title' | actual}}</span>
+                                        <div styling="inline">
+                                            <collaborate:bookmark class="social-inline" target="{{result | field:'_lw_id_s' | actual}}" title="{{result | field:'title' | actual}}" url="result?id={{result | field:'_lw_id_s' | actual}}"></collaborate:bookmark>
+                                        </div>
+                                    </h2>
+                                    <hr>
+                                    <search:field name="content" suffix=".." styling="description" max-characters="650"></search:field>
+                                </search:result>
+                            </ul>
+                        </layout:block>
+                        <layout:block md="1-2" md-offset="1-4" lg="1-3" lg-offset="0" xl="1-5" xl-offset="0" styling="text-right" padding-top="1">
+                            <ul class="result-list">
+                                <search:result result="response.results[0].result">
+                                    <a ng-href="{{result | field:'url_s' | actual}}" target="_blank"><p styling="button width-1" class="icon-link-ext">&nbsp;View Original</p></a>
+                                </search:result>
+                            </ul>
+                        </layout:block>
+                    </layout:grid>
+                </div>
+
+                <!-- Panel: Items for item recommendation (Content-based) -->
+                <div class="standard-panel doc-details" ng-if="(itemContentRecsResponse.hits | actual) > 0">
+                    <h5 class="panel-title">
+                        Content-based Document Recommendations
+                        <widget:popover direction="right" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                            <popover-trigger>
+                                <button styling="button">i</button>
+                            </popover-trigger>
+                            <popover-content>
+                                <p>Content-based document recommendations for the item you're viewing. <br><br>The recommendations are generated using Fusion AI's Content-Based Recommender.</p>
+                            </popover-content>
+                        </widget:popover>
+                    </h5>
+                    <!-- <track:clicks query="docsQuery"> -->
+                    <search:result-list response="itemContentRecsResponse" styling="cards-md-5">
+                        <search:result styling="card-shadow">
+                            <search:field name="source" label="" styling="label-inline" class="result-source"></search:field>
+                            <a class="link" ng-href="search/{{result | field:'encoded_id_s' | actual}}" target="_self">
+                                <div class="flex items-center">
+                                    <search:field name="title" label="" styling="title" show="1" class="user-rec-items"></search:field>
+                                </div>
+                            </a>
+                        </search:result>
+                    </search:result-list>
+                    <!-- </track:clicks> -->
+                </div>
+
+            </layout:block>
+
+            <!-- Extras Block -->
+            <layout:block sm="1-1" lg="1-4" class="nopad-64">
+
+                <!-- Panel: People also visited -->
+                <div class="standard-panel" ng-if="(itemRecsResponse.hits | actual) > 0">
+                    <h5 class="panel-title">
+                        People who looked at this, also looked at:
+                        <widget:popover direction="left" mode="hover" hover-timeout="100" styling="popover-small" class="feature-info-popover">
+                            <popover-trigger>
+                                <button styling="button">i</button>
+                            </popover-trigger>
+                            <popover-content>
+                                <p>Signal-based doocument recommendations for the item you're viewing. <br><br>The recommendations are generated using Fusion AI's Bayesian Personalized Ranking (BPR) Recommender.</p>
+                            </popover-content>
+                        </widget:popover>
+                    </h5>
+                    <search:result-list response="itemRecsResponse" styling="cards-sm-1">
+                        <search:result styling="card-shadow">
+                            <a class="link" href="{{result | field:'url_s' | actual}}" target="_blank">
+                                <div class="flex items-center">
+                                    <div class="media-list-item-sm">
+                                        <media:image result="result" styling="image-fill" field-name="extension" field-prefix="{{$root.contextPath + 'extras/icons/'}}" field-suffix=".png" fallback-image-url="extras/icons/file.png" image-service-url=""></media:image>
+                                    </div>
+                                    <div class="media-list-content flex justify-between w-100 pl3">
+                                        <search:field name="title" label="" styling="title" show="1"></search:field>
+                                        <span class="chip">{{result | field:'source' | actual}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </search:result>
+                    </search:result-list>
+                </div>
+            </layout:block>
+
+            <!-- Field Table Block -->
+            <layoug:block class="nopad-64">
+                <layout:block>
+                    <p><a class="linkX" ng-click="$parent.showAllFields = !$parent.showAllFields" href="javascript:void(0);">Show all fields</a></p>
+                </layout:block>
+                
+                <!-- RAW Field Values-->
+                <layout:block class="standard-panel doc-details" ng-if="showAllFields">
+                    <layout:box>
+                    <div class="plain_panel">
+                        <table class="table table-striped table-bordered">
+                        <tr ng-repeat="(field,val) in getSortedList(response.results[0].result.fields)">
+                        <td>{{field}}</td>
+                        <td>{{val.val}}</td>
+                        </tr>
+                        </table>
+                    </div>
+                    </layout:box>
+                </layout:block>
+            </layoug:block>
+
+        </layout:grid>
+
+        <layout:grid ng-if="!(response | result)">
+            <!-- Sorry Block -->
+            <layout:block sm="1-1" lg="2-3" lg-offset="1-6" styling="text-center">
+                <div class="standard-panel sorry-panel">
+                    <h1 class="icon-doc-text"></h1>
+                    <h3>Sorry, this document is currently unavailable.</h3>
+                </div>
+            </layout:block>
+        </layout:grid>
+
+    </layout:block>
+</layout:animate>
+
+
+<br/>

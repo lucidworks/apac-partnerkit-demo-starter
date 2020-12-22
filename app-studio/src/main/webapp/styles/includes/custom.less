@@ -1,0 +1,25 @@
+// Add your custom LESS to this file
+
+//This will fix the overlap text with counts in facets
+.filter-list .filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    label {
+        margin-left: 2em;
+        text-indent: -.8em;
+        padding-right: .5em;
+    }
+    span.metadata {
+        float: none;
+        width: auto;
+        margin-left: auto;
+        .count {
+            padding: 0 15%;
+            border-radius: @border-radius;
+        }
+    }
+    .tk-stl-styled-checkbox + label::after, .tk-filter-radio + label::after {
+        left: -1.15em;
+    }
+}

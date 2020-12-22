@@ -1,0 +1,58 @@
+{
+  "name": "app-studio-enterprise",
+  "version": "4.11.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "angular": "1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-aria": "1.6.4",
+    "angular-cookies": "1.6.4",
+    "angular-highlightjs": "0.7.1",
+    "angular-multi-step-form": "1.3.0",
+    "angular-resizable": "1.2.0",
+    "angular-sanitize": "1.6.4",
+    "angular-touch": "1.6.4",
+    "@uirouter/angularjs": "0.4.2",
+    "appkit-ui": "http://appkit.lucidworks.com/repo/4.11.0/appkit-ui.tar.gz",
+    "highlightjs": "https://github.com/components/highlightjs/archive/9.12.0.tar.gz",
+    "ng-file-upload": "12.2.13"
+  },
+  "devDependencies": {
+    "autoprefixer": "8.0.0",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.3",
+    "babel-preset-env": "1.6.1",
+    "css-loader": "0.28.10",
+    "eslint": "4.2.0",
+    "eslint-plugin-angular": "3.3.0",
+    "fast-async": "6.3.1",
+    "file-loader": "1.1.10",
+    "html-loader": "0.5.5",
+    "less": "3.0.1",
+    "less-loader": "4.0.6",
+    "mini-css-extract-plugin": "0.4.1",
+    "ng-annotate-loader": "0.6.1",
+    "ngtemplate-loader": "2.0.1",
+    "null-loader": "0.1.1",
+    "oauth-redirect": "1.0.0",
+    "postcss-loader": "2.1.1",
+    "raw-loader": "0.5.1",
+    "request-promise": "4.1.1",
+    "script-loader": "^0.7.2",
+    "style-loader": "0.13.1",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.1.0",
+    "webpack-merge": "4.1.4"
+  },
+  "scripts": {
+    "start": "npm run webpack:watch",
+    "build": "npm run webpack:build --",
+    "webpack:watch": "rimraf ./build && webpack --config ./webpack.dev.js  --watch --progress --profile --colors --display-error-details --display-cached",
+    "webpack:build": "rimraf ./build && webpack --config ./webpack.prod.js --progress --profile --colors --display-error-details --display-cached"
+  },
+  "repository": {},
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

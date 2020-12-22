@@ -1,0 +1,86 @@
+pipeline {
+    agent {
+        node { label 'slave16G1exec||slave32G1exec' }
+    }
+
+    triggers {
+        cron('@daily')
+    }
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
+    environment {
+        // Slack integration
+        SLACK_CHANNEL='#app-studio-ci'
+
+        // GitHub details
+        GITHUB_BASE_URL = "${env.GIT_URL - ~/\.git$/}" // e.g. https://github.com/lucidworks/app-studio-enterprise
+        GITHUB_REPO_NAME = "${env.GITHUB_BASE_URL - ~/^https:\/\/github.com\//}" // e.g. org/repo
+
+        // URL to GitHub PR page or current commit
+        GITHUB_COMMIT_URL = "${env.GIT_BRANCH =~/^PR.*merge$/ ?\
+            "${env.GITHUB_BASE_URL}/pull/${env.GIT_BRANCH - ~/^PR-/ - ~/-merge/}" :\
+            "${env.GITHUB_BASE_URL}/commit/${env.GIT_COMMIT}"}"
+
+        // URL to GitHub PR page or tree of branch
+        GITHUB_BRANCH_URL = "${env.GIT_BRANCH =~/^PR-/ ?\
+            "${env.GITHUB_BASE_URL}/pull/${env.GIT_BRANCH - ~/^PR-/ - ~/-head/ - ~/-merge/}" :\
+            "${env.GITHUB_BASE_URL}/tree/${env.GIT_BRANCH}"}"
+
+        // Git details
+        GIT_SHORT_HASH = "${env.GIT_COMMIT.take(8)}"
+
+        // Slack message colours
+        COLOUR_STARTED = '#2881c9'
+        COLOUR_PASSED  = '#00ae42'
+        COLOUR_FAILED  = '#ff0000'
+
+        SLACK_MESSAGE_PREFIX = "Build <${env.BUILD_URL}|#${env.BUILD_NUMBER}> (<${env.GITHUB_COMMIT_URL}|${env.GIT_SHORT_HASH}>) " +
+                "of <${env.GITHUB_BASE_URL}|${env.GITHUB_REPO_NAME}> " +
+                "<${env.GITHUB_BRANCH_URL}|${env.GIT_BRANCH}> "
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                slackSend (message: "${env.SLACK_MESSAGE_PREFIX} started", \
+                    channel: env.SLACK_CHANNEL, color: env.COLOUR_STARTED)
+
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            agent {
+                dockerfile {
+                    dir 'jenkins'
+                    reuseNode true
+                }
+            }
+            steps {
+                withCredentials([file(credentialsId: 'twigkit-mvn-profile', variable: 'MVN_TWIGKIT_PROFILE')]) {
+                    sh './jenkins/build-inner.sh'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            archiveArtifacts 'dist/*.zip'
+
+            slackSend (message: "${env.SLACK_MESSAGE_PREFIX} passed " +\
+                "in ${currentBuild.durationString - ~/and counting/}", \
+                channel: env.SLACK_CHANNEL, color: env.COLOUR_PASSED)
+        }
+
+        failure {
+            slackSend (message: "${env.SLACK_MESSAGE_PREFIX} failed " +\
+                "in ${currentBuild.durationString - ~/and counting/}", \
+                channel: env.SLACK_CHANNEL, color: env.COLOUR_FAILED)
+        }
+    }
+}

@@ -1,0 +1,117 @@
+/* Outer Panel */
+
+.tk-stl-instant-results {
+    z-index:5;
+    margin-top:8px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 0 1px rgba(0,0,0,.35);
+    padding-bottom: @space-unit;
+    max-height: 60vh;
+    display:none;
+
+    &.show {
+      display: block;
+    }
+
+    .result .tk-stl-title p {
+      font-size: @font-size-xs;
+    }
+
+}
+
+.tk-stl-instant-results ul {
+    max-height:500px;
+    padding:0 @space-unit;
+    margin:0;
+    border:0;
+}
+
+.tk-stl-instant-results ul li {
+    padding:0;
+    margin:0;
+    &:hover, &.selected {
+      background: #f9fafb;
+      background: #fff;
+      text-decoration:none;
+    }
+}
+
+.tk-stl-sortoptions-group.tk-stl-instant-results ul{
+  background-color: #fff;
+  padding-bottom: @space-xs;
+}
+
+.tk-stl-sortoptions-group.tk-stl-instant-results ul li a {
+  padding-left: 0;
+  padding-right: 0;
+  color:#6c6c6c;
+  white-space: initial;
+}
+
+.tk-stl-sortoptions-group.tk-stl-instant-results ul li a:hover,
+.tk-stl-sortoptions-group.tk-stl-instant-results ul li a.selected {
+  color:@blue-4;
+  text-decoration: none;
+  background: #f0f2f4;
+}
+
+/* Section Titles */
+.section-title.tk-stl-title p {
+  color:#9a9aa2;
+  padding: 0.4em 0;
+  margin:@space-sm 0 0.325em 0;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size: @font-size-xs;
+  font-weight: 400;
+  border-bottom: 1px solid #e8eaec;
+  cursor:text;
+}
+
+/* Matching text */
+.tk-stl-instant-results em {
+    font-weight:500;
+    font-style:normal;
+    border:0;
+    background: rgba(255, 242, 204, 0.4);
+    border-bottom: 1px solid #fff2cc;
+    color:#000;
+}
+
+.tk-stl-instant-results .result .result .tk-stl-pull-right {
+    color: @gray-1;
+    font-size: @font-size-xs;
+    border: 1px solid #e8eaec;
+    padding: 4px 5px 3px 5px;
+    margin: 0.4em 0;
+    border-radius: 2px;
+    line-height: 1;
+    text-transform: capitalize;
+}
+
+.tk-stl-instant-results .result .result .tk-stl-title p {
+    font-weight:500;
+    padding:0.3em 0 0 0;
+    font-size: @font-size-sm;
+}
+
+.tk-stl-instant-results .result .result img {
+    margin:0 0 (-@space-xs) 0;
+    padding:0;
+}
+
+.tk-stl-instant-results .result-list {
+    margin-bottom:0;
+}
+
+.tk-stl-instant-results .token {
+    border-radius: 3px;
+    padding: 0.2em @space-xs;
+    color:#fff;
+    font-size: @font-size-xs;
+    margin: 0.3em 0 0.1em 0;
+    background: @blue-4;
+    border: 1px solid rgb(32, 112, 196);
+    box-shadow: none;
+}

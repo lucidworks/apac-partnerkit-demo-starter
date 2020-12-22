@@ -1,0 +1,50 @@
+<search:platform var="typeahead" conf="platforms.fusion.typeahead"></search:platform>
+<search:query var="instantQuery" parameters="none" results-per-page="2"></search:query>
+
+<search:box action="{{action}}" placeholder="Find documents, people, departments..." styling="md width-1 text-left text-asphalt">
+    <!-- <query-suggestions completion-service="services.suggestions.terms" action="/search"></query-suggestions> -->
+    <!--Joined result lists -->
+    <instant:result-list platform="typeahead" query="instantQuery" children-selector=".link">
+      <!-- Group 1: Documents-->
+      <search:result when="typeahead_type" equals="document" class="typeahead-section">
+          <!-- Title -->
+          <h6>Document Suggestions</h6>
+          <!--Results-->
+          <search:result-list results="result.related">
+              <search:result>
+                  <a class="link" ng-href="search/{{result | field:'encoded_id_s' | actual}}" style="padding: 0px 4px !important;">
+                    <layout:grid>
+                        <layout:block xs="1-24" styling="text-left">
+                          <media:image result="result" styling="image-fill" field-name="extension" field-prefix="{{$root.contextPath + 'extras/icons/'}}" field-suffix=".png" fallback-image-url="extras/icons/file.png" image-service-url=""></media:image>
+                        </layout:block>
+                        <layout:block xs="20-24" padding-left="05" class="typeahead-item">
+                            <search:field name="title" label=""></search:field>
+                        </layout:block>
+                        <layout:block xs="3-24">
+                          <span styling="pull-right">{{result | field:'source' | actual}}</span>
+                      </layout:block>
+                    </layout:grid>
+                  </a>
+              </search:result>
+          </search:result-list>
+      </search:result>
+
+      <!-- Group 2: Search History -->
+      <search:result when="typeahead_type" equals="query" class="typeahead-section">
+          <!-- Title -->
+          <h6>Query Suggestions</h6>
+          <!-- Results -->
+          <search:result-list results="result.related">
+              <search:result>
+                  <a class="link" ng-href="search?q={{result | field:'query_t' | actual | encodeURIComponent}}" style="padding: 0px 4px !important;">
+                      <layout:grid>
+                          <layout:block padding-left="05" class="typeahead-item">
+                              <search:field name="query_t" label=""></search:field>
+                          </layout:block>
+                      </layout:grid>
+                  </a>
+              </search:result>
+          </search:result-list>
+      </search:result>
+    </instant:result-list>
+</search:box>

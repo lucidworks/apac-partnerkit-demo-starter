@@ -1,0 +1,133 @@
+// ---------------------------------------------------------
+// Department detail specific
+// ---------------------------------------------------------
+
+// Department Summary
+
+.dept-summary {
+  text-align: left;
+  position:relative;
+  border-left:0;
+}
+
+.dept-summary:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  border-radius: 6px 0 0 6px;
+  background:@pink-5;
+}
+
+.marketing .dept-summary:before      {background:@pink-5;}
+.engineering .dept-summary:before    {background:@light-green-5;}
+.hr .dept-summary:before             {background:@teal-5;}
+.development .dept-summary:before    {background:@purple-5;}
+.support .dept-summary:before        {background:@amber-5;}
+.management .dept-summary:before     {background:@cyan-5;}
+.slack .dept-summary:before          {background:@color-black;}
+
+
+.dept-summary h2 {
+    font-weight: 500;
+    margin: 0 0 @space-xs 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.marketing .dept-summary h2      {color:@pink-5;}
+.engineering .dept-summary h2    {color:@light-green-5;}
+.development .dept-summary h2    {color:@purple-5;}
+.support .dept-summary h2        {color:@amber-5;}
+.management .dept-summary h2     {color:@cyan-5;}
+.slack .dept-summary h2          {color:@color-black;}
+
+.hr .dept-summary h2 {
+  color:@teal-5;
+  text-transform: uppercase;
+}
+
+.slack .dept-summary h2:before {
+  font-family:'Twigkit-basic';
+  content: '\f198';
+  margin:0 @space-xxs 0 0;
+}
+
+.dept-summary h4 {
+  font-weight:500;
+  color: @color-black;
+  margin: 0;
+}
+
+.dept-summary p {
+  font-weight:400;
+  color:@color-tertiary;
+  margin: 0 0 @space-xxl 0;
+}
+
+// Department Skills Filter
+.standard-panel.facetlist .facet-list {
+  border:0;
+  padding:0;
+  margin:0;
+}
+
+.standard-panel.facetlist h3.facet-title {
+  display:none;
+}
+
+.standard-panel.facetlist ol.filter-list {
+  border:0;
+  padding-bottom:0;
+}
+
+// Department Skills People Cards
+.department ol.related-people {
+  margin-bottom:@space-xs;
+}
+
+.related-people .result {
+  margin-bottom:@space-xs;
+  padding:@space-xs;
+}
+
+.related-people .tk-stl-card {
+  border:0;
+  padding:0;
+}
+
+@media screen and (min-width: 80em) {
+
+  .result-list.tk-stl-cards-xl-12 li.result {
+    width: 7.3333333333333334%;
+    margin-right:1%;
+  }
+
+}
+
+.colleague-browser {
+  border-top:0;
+  padding-top:0.65em;
+}
+
+.colleague-browser .related-people img {
+  border: 2px solid @color-white;
+}
+
+.colleague-browser .related-people img:hover {
+  border: 2px solid @color-primary;
+}
+
+// Dept Docs List
+.standard-panel.detail-docs .result-list {
+  margin-bottom:0;
+}
+
+.detail-docs li.result.tk-stl-card {
+  margin-bottom: @space-unit;
+  padding: 0 @space-xxl @space-unit 0;
+  border-color: @color-white;
+}

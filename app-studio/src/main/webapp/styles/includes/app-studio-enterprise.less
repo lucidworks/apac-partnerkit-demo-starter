@@ -1,0 +1,358 @@
+// App Studio Enterprise default styling
+
+// ---------------------------------------------------------
+// Utility Colours and Typography
+// ---------------------------------------------------------
+
+h1, h2, h3, h4, h5 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: @color-secondary;
+}
+
+
+
+:focus {
+    outline: 0;
+}
+
+// ---------------------------------------------------------
+// Header + Navigation
+// ---------------------------------------------------------
+
+.tk-stl-header {
+    // Uncomment the following line for a solid background colour in the header.
+    //background: @color-primary;
+
+    background-image: radial-gradient(ellipse 50% 70% at 50% 0, lighten(@color-primary, 20%) 20%, @color-primary);
+    //background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
+/* search */
+.tk-stl-header .tk-stl-button {
+    background: @color-primary-dark;
+}
+
+.tk-stl-labelled-input.tk-stl-label-right input {
+    border-color: @color-primary-dark;
+    border-right-width: 0;
+}
+
+.tk-stl-labelled-input > i {
+    border-color: @color-primary-dark;
+}
+
+/* logo */
+.tk-header-logo img {
+    margin: 11px 0 0 5px;
+    width: 136px;
+    min-width: 136px;
+}
+
+.tk-stl-offcanvas-toggle .tk-stl-icon-bar {
+    background-color: @color-secondary;
+}
+
+.tk-stl-offcanvas-toggle {
+    border-color: @color-primary-dark;
+}
+
+/* navbar */
+.tk-stl-navbar {
+    background: -moz-linear-gradient(top, @color-primary-light 5%, @color-primary 100%);
+    background: -webkit-linear-gradient(top, @color-primary-light 5%, @color-primary 100%);
+    background: linear-gradient(to bottom, @color-primary-light 5%, @color-primary 100%);
+    background: linear-gradient(to bottom, @color-primary-light 5%, @color-primary 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color-primary-light', endColorstr='@color-primary', GradientType=1);
+}
+
+.tk-stl-navbar {
+    background: @color-primary-dark;
+    border-top: 1px solid @color-primary-light;
+}
+
+.tk-stl-navbar-item a {
+    opacity: 0.5;
+}
+
+.tk-stl-navbar-item a .label {
+    border: 0;
+}
+
+.tk-stl-navbar-item:hover, .tk-stl-navbar-item:focus, .tk-stl-navbar-item.active {
+    box-shadow: none;
+    opacity: 1;
+}
+
+.tk-stl-navbar-item:hover a, .tk-stl-navbar-item.active a {
+    opacity: 1;
+}
+
+.tk-stl-navbar-item.active a {
+    background: rgba(255, 255, 255, 0.085);
+    border-top: 1px solid rgba(255, 255, 255, 0.175);
+    margin-top: -1px;
+}
+
+// ---------------------------------------------------------
+// Search Page
+// ---------------------------------------------------------
+
+/* welcome message*/
+.tk-stl-interruptor {
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 1em;
+    margin: 1em 2% 1.5em 0;
+    border: 0;
+    border-top: 2px solid @color-primary-light;
+}
+
+.tk-stl-interruptor h4 {
+    margin: 0 0 0.25em 0;
+    padding: 0;
+    font-size: 1.4em;
+    color: @color-primary-light;
+}
+
+.tk-stl-interruptor p {
+    margin: 0 0 0.75em 0;
+    padding: 0;
+}
+
+.tk-stl-interruptor p.tk-stl-button {
+    margin: 0;
+    padding: 0;
+}
+
+/* sidebar */
+.tk-stl-blocksidebar-light {
+    background: @color-quaternary;
+}
+
+.tk-stl-blocksidebar-light .facet-list h3 {
+    color: @color-secondary;
+}
+
+.tk-stl-blocksidebar-light .facet-list ol.filter-list {
+    margin-bottom: 1em;
+}
+
+.tk-stl-blocksidebar-light .facet-list .tk-stl-show-more a {
+    color: #999;
+    font-style: italic;
+}
+
+.facet-list li.facet li.tk-facet-search-container {
+    margin: -0.25em 0 0.25em 0;
+}
+
+.tk-facet-search-container input::-webkit-input-placeholder, .tk-facet-search-container input::placeholder {
+    color: #c1cbd6;
+}
+
+.tk-facet-search-container input {
+    padding-left: 12px;
+}
+
+.tk-stl-tabs > li.active {
+    border-bottom-color: @color-white;
+    background: @color-white;
+}
+
+.tk-stl-sortoptions-block {
+    justify-content: flex-end;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 0.5em 0em;
+}
+
+.tk-stl-sortoptions li a {
+    font-weight: 400;
+}
+
+.response-statistics {
+    float: left;
+    margin: 0.5em 1em 0.5em 0;
+    font-weight: 400;
+}
+
+/* search results */
+
+.result * {
+    word-break: break-word;
+}
+
+.result p {
+    font-size: 1em;
+}
+
+.result .tk-stl-title p {
+    margin-bottom: 0.25em;
+    font-size: 1.1em;
+}
+
+.result .tk-stl-title p a {
+    font-weight: 700;
+    color: @color-secondary;
+    color: @color-primary-dark;
+}
+
+/* Highlighting */
+.result {
+    em {
+        filter: brightness(0.8);
+        font-weight: bold;
+        font-style: normal;
+    }
+}
+
+.tk-stl-url a {
+    color: @color-tertiary;
+    font-size: 0.9em;
+}
+
+/* User Info */
+.user-wrapper {
+    padding-top: 1.6em;
+
+    .tk-stl-sortoptions > li {
+        float: right;
+
+        > a {
+            color: @color-white;
+        }
+    }
+}
+
+/* Login Page */
+/* ---------- */
+body.login.app-studio-login {
+    background-image: radial-gradient(ellipse 50% 70% at 50% 0, lighten(@color-primary, 20%) 20%, @color-primary);
+}
+
+/* Notifications */
+/* ------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.fade-out-down {
+    animation-name: fadeOutDown;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.navbar-brand {
+    font-size: 20pt;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+
+// ---------------------------------------------------------
+// Saved searches (in search bar)
+// ---------------------------------------------------------
+
+.show .tk-stl-saved-searches {
+    background-color: @color-white;
+    padding: 1em;
+    .title {
+        font-weight: 700;
+        padding: 0 0 .5em;
+        margin-bottom: .5em;
+    }
+    form {
+        .tk-stl-labelled-input {
+            background: @color-tertiary;
+            border-radius: @border-radius;
+            input {
+                border: 1px solid #ccc;
+                //border:none;  // this would be a better
+                border-radius: @border-radius;
+            }
+        }
+        .label .tk-stl-button {
+            border-top-right-radius: @border-radius;
+            border-bottom-right-radius: @border-radius;
+        }
+    }
+    li {
+        padding: .5em 0;
+        .content {
+            padding: 0;
+            p {
+                color: @color-secondary;
+            }
+        }
+        .delete {
+            top: 0.5em;
+        }
+    }
+    li:nth-last-child(2) {
+        border-bottom: none;
+    }
+}
+
+// ---------------------------------------------------------
+// Bookmark list (in search bar)
+// ---------------------------------------------------------
+
+.show .tk-stl-bookmarks-list {
+    background-color: @color-white;
+    padding: 1em;
+    .title {
+        font-weight: 700;
+        padding: 0 0 .5em;
+        margin-bottom: .5em;
+    }
+    li {
+        padding: .5em 0;
+        .content {
+            padding: 0;
+            p {
+                color: @color-quaternary;
+            }
+        }
+        .delete {
+            top: 0.5em;
+        }
+    }
+    li:nth-last-child(2) {
+        border-bottom: none;
+    }
+}
+
+// Hide bookmark count.
+.tk-bookmark span {
+    display:none;
+}

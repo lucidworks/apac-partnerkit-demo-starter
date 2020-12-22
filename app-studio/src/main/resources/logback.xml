@@ -1,0 +1,29 @@
+<configuration scan="true">
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- On Windows machines setting withJansi to true enables ANSI
+         color code interpretation by the Jansi library. This requires
+         org.fusesource.jansi:jansi:1.8 on the class path.  Note that
+         Unix-based operating systems such as Linux and Mac OS X
+         support ANSI color codes by default. -->
+        <withJansi>false</withJansi>
+        <encoder>
+            <!-- Color pattern for *nix platforms and Jansi color code interpretation on Windows -->
+            <!-- <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{36}) - %msg %n</pattern> -->
+            <!-- Windows pattern without ANSI color codes -->
+            <pattern>%d{ISO8601} - %-5p [%t:%C{3}@%L] - %X - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- All logging will be at this level unless overridden with a <logger> -->
+    <root level="ERROR">
+        <!-- All logs will be written to stdout -->
+        <!-- When deployed to Lucidworks Fusion, logs will be aggregated by Fusion -->
+        <!-- When running in development mode via the app-studio script,
+        logs will be written to ./logs/app-studio-{port}-console.log -->
+        <appender-ref ref="stdout"/>
+    </root>
+
+    <!-- Logger overrides -->
+    <logger name="twigkit" level="DEBUG" />
+    <logger name="org.springframework.security" level="ERROR" />
+</configuration>

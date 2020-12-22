@@ -1,0 +1,77 @@
+// Facet filters on searh page
+
+.tk-stl-styled-checkbox + label {color:@color-primary;}
+
+.filter {
+
+  display: flex;
+  margin-bottom: .2em;
+
+  .tk-stl-styled-checkbox + label,
+  .tk-filter-radio + label {
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 80%;
+  }
+
+  .tk-stl-styled-checkbox + label::before,
+  .tk-filter-radio + label::before {
+      left: 0;
+      margin-right: .25rem;
+      top: 0.05em;
+      width: 10px;
+      height: 10px;
+  }
+
+  .tk-stl-styled-checkbox + label::after {
+      left: 2px;
+  }
+
+  .tk-filter-radio + label::after {
+      left: 4px;
+  }
+
+  .metadata {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+}
+
+.filter-list input[type="checkbox"]:focus + label::before {
+  outline: none;
+}
+
+h3.facet-title {
+    font-size: @font-base-size;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0 @space-unit 0;
+}
+
+.histogram li div.bar {background-color: @color-quinary;}
+.histogram li:hover div.bar {background-color: @color-primary;}
+.facet-list .tk-stl-show-more a {
+  color: @color-tertiary;
+  font-style: italic;
+  font-size: @font-size-sm;
+}
+
+.facet-list li.facet li.tk-facet-search-container {margin: (-@space-xxs) 0 @space-xxs 0;}
+
+.facet-file-type label {
+    text-transform:lowercase
+}
+
+.tk-facet-search-container input::-webkit-input-placeholder,
+.tk-facet-search-container input::placeholder {color: @color-tertiary;}
+.tk-facet-search-container input {
+    padding: @space-xs @space-sm;
+    border-radius: 4px;
+    border: 1px solid @color-quinary;
+    font-size: @font-base-size;
+    margin: 0 0 0.4em 0;
+}

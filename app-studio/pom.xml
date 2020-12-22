@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>app-studio-enterprise</artifactId>
+    <packaging>${packaging.type}</packaging>
+    <version>4.11.0</version>
+
+    <parent>
+        <groupId>twigkit</groupId>
+        <artifactId>twigkit.app.studio</artifactId>
+        <version>4.11.0</version>
+    </parent>
+
+    <build>
+        <finalName>${project.name}</finalName>
+
+        <!-- ======================================================= -->
+        <!-- npm operations                                          -->
+        <!-- ======================================================= -->
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <!-- Install JavaScript dependencies -->
+                    <execution>
+                        <id>npm-install</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>${basedir}</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>webpack-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration combine.self="override">
+                            <filesets>
+                                <fileset>
+                                    <!-- Clean Webpack output from development mode -->
+                                    <directory>${project.basedir}/src/main/webapp/dist</directory>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!-- ================================================================== -->
+        <!-- Default/Production profile                                         -->
+        <!-- ================================================================== -->
+        <profile>
+            <id>enterprise</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <build>
+                <finalName>${project.name}</finalName>
+
+                <!-- ======================================================= -->
+                <!-- Run webpack in production mode                          -->
+                <!-- ======================================================= -->
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>npm-webpack-prod</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>build</argument>
+                                        <argument>--</argument>
+                                        <argument>--env.APP_NAME=${project.artifactId}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+                            <!-- Include license file in packaged war file -->
+                            <execution>
+                                <id>copy-license-into-war</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.basedir}</directory>
+                                            <includes>
+                                                <include>app-studio.lic</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- ================================================================== -->
+        <!-- Development profile                                                -->
+        <!-- ================================================================== -->
+        <profile>
+            <id>development</id>
+
+            <build>
+                <finalName>${project.name}</finalName>
+
+                <!-- ======================================================= -->
+                <!-- Run webpack in development mode (file watching)         -->
+                <!-- ======================================================= -->
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>npm-webpack-dev</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>start</argument>
+                                    </arguments>
+                                    <async>true</async>
+                                    <asyncDestroyOnShutdown>true</asyncDestroyOnShutdown>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- ================================================================== -->
+        <!-- Appkit profiles (dev and prod)                                     -->
+        <!-- An Appkit profile may be used instead of the default by appending  -->
+        <!-- the system property -Dtwigkit.profile=<profile_name> to the mvn    -->
+        <!-- command, e.g. mvn clean package -Dtwigkit.profile=<my_profile>     -->
+        <!-- WAR and JAR-files are packaged under /dist/${profile-name}         -->
+        <!-- ================================================================== -->
+        <profile>
+            <id>twigkit-dev-profile</id>
+            <activation>
+                <property>
+                    <name>twigkit.dev.profile</name>
+                </property>
+            </activation>
+            <properties>
+                <profile-name>${twigkit.dev.profile}</profile-name>
+            </properties>
+
+            <build>
+                <finalName>${project.name}</finalName>
+
+                <plugins>
+
+                    <!-- ======================================================= -->
+                    <!-- Copying static resources                                -->
+                    <!-- ======================================================= -->
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+
+                            <!-- ======================================================= -->
+                            <!-- Copying profile resources into /target/classes          -->
+                            <!-- ======================================================= -->
+                            <execution>
+                                <id>copy-appkit-profile-resources</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Overwrite any files that already exist -->
+                                    <overwrite>true</overwrite>
+
+                                    <outputDirectory>${project.basedir}/target/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.basedir}/src/main/profiles/${profile-name}</directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- ======================================================= -->
+                    <!-- Run webpack in development mode (file watching)         -->
+                    <!-- ======================================================= -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>npm-webpack-dev</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>start</argument>
+                                    </arguments>
+                                    <async>true</async>
+                                    <asyncDestroyOnShutdown>true</asyncDestroyOnShutdown>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>twigkit-build-profile</id>
+            <activation>
+                <property>
+                    <name>twigkit.profile</name>
+                </property>
+            </activation>
+            <properties>
+                <profile-name>${twigkit.profile}</profile-name>
+            </properties>
+
+            <build>
+                <plugins>
+                    <!-- ======================================================= -->
+                    <!-- Run webpack in production mode                          -->
+                    <!-- ======================================================= -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>npm-webpack-prod</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>npm</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>build</argument>
+                                        <argument>--</argument>
+                                        <argument>--env.APP_NAME=${project.artifactId}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+                            <!-- Include license file in packaged war file -->
+                            <execution>
+                                <id>copy-license-into-war</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.basedir}</directory>
+                                            <includes>
+                                                <include>app-studio.lic</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+    <dependencies>
+        <!-- Appkit Fusion platform module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.fusion</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Social Module (Platform) -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.social.provider.platform</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Fusion JSP module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.fusion.ui-jsp</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Fusion Security Provider module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.security.provider.fusion</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Activity Tracking module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.activity.tracker</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Fusion Message Producer module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.message.service.fusion.producer</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Appkit Media module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.media</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--Wikipedia-->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.wikipedia</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Servlet APIs -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
