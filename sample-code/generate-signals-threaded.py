@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 # Fusion connection settings
 fusion_ip = "f5"
 fusion_port = "6764"
+fusion_protocol = "http"
 fusion_user = "admin" # Fusion username
 fusion_password = "password123!" # Fusion password
 fusion_app = "movielens" # Fusion App to call API on
@@ -48,8 +49,8 @@ path = "/search" # Search page path
 
 # DO NOT CHANGE=======================================================
 # API
-queryURL = "http://"+fusion_ip+":"+fusion_port+"/api/apps/"+fusion_app+"/query/"+fusion_query_profile
-signalURL = "http://"+fusion_ip+":"+fusion_port+"/api/signals/"+fusion_collection
+queryURL = fusion_protocol+"://"+fusion_ip+":"+fusion_port+"/api/apps/"+fusion_app+"/query/"+fusion_query_profile
+signalURL = fusion_protocol+"://"+fusion_ip+":"+fusion_port+"/api/signals/"+fusion_collection
 
 
 sc=0
