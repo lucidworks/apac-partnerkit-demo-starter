@@ -9,7 +9,7 @@ Updated : Jan 12, 2021
 **Table of Contents**
 
 - [Partner Demo Kit](#partner-demo-kit)
-- [License](#license)
+  - [License](#license)
   - [Introduction](#introduction)
   - [Get Started](#get-started)
     - [1. Install Fusion](#1-install-fusion)
