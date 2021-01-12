@@ -1,5 +1,8 @@
 # Partner Demo Kit
 
+This is a Korean Translation based on original readme updated on Jan 12, 2021.<br>
+[English README.md is here](../README.md)
+
 **목차**
 
 - [소개](#소개)

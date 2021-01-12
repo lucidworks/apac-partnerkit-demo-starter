@@ -1,7 +1,7 @@
 cat README.md
 # Partner Demo Kit
 
-Updated : Dec 21, 2020
+Updated : Jan 12, 2021
 
 - [한글](readme-lang/README-KO.md)
 - [日本語READMEはこちら](readme-lang/README-JA.md)
