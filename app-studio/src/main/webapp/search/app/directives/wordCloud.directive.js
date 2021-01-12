@@ -5,8 +5,9 @@
  * @author Claire Do
  *
  * @description
- * Word cloud visualization for trending searches using AnyChart
- * https://www.anychart.com/
+ * Word cloud visualization for trending searches using AnyChart (https://www.anychart.com)
+ * NOTE!! AnyChart is a commercial product. Code in this project serves as an example of the library's capabilities
+ * To use AnyChart in implementations, contact https://www.anychart.com/buy/ 
  */  
 /*@ngInject*/
 export function wordCloud($document) {

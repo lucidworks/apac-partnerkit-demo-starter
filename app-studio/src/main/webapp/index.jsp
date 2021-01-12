@@ -20,7 +20,9 @@
     <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.ico?v=3" type="image/x-icon"/>
     <link rel="stylesheet" href="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/main.css')}">
 
-    <!-- AnyChart -->
+    <!-- AnyChart (https://www.anychart.com) -->
+    <!-- NOTE!! AnyChart is a commercial product. Code in this project serves as an example of the library's capabilities  -->
+    <!--        To use AnyChart in implementations, contact https://www.anychart.com/buy/  -->
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
 </head>

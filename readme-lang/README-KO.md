@@ -5,18 +5,17 @@ This is a Korean Translation based on original readme updated on Jan 12, 2021.<b
 
 **목차**
 
-- [소개](#소개)
-- [라이선스](#라이선스)
-- [시작하기](#시작하기)
-  1. [Fusion 설치](#1-fusion-설치)
-  2. [Fusion 앱 템플릿 준비](#2-fusion-앱-템플릿-준비)
-  3. [Fusion 앱 템플릿 가져오기](#3-fusion-앱-템플릿-가져오기)
-  4. [데이터소스 실행](#4-데이터소스-실행)
-  5. [Signal 생성](#5-signal-생성)
-  6. [추천 데이터 생성](#6-추천-데이터-생성)
-  7. [App Studio 실행](#7-App-Studio-실행)
-- [추가 리소스](#추가-리소스)
-  * [Jupyter Notebook 예제](#jupyter-notebook-예제) (추후 추가 예정)
+- [Partner Demo Kit](#partner-demo-kit)
+  - [소개](#소개)
+  - [라이선스](#라이선스)
+  - [시작하기](#시작하기)
+    1. [Fusion 설치](#1-fusion-설치)
+    2. [Fusion 앱 템플릿 준비](#2-fusion-앱-템플릿-준비)
+    3. [Fusion 앱 템플릿 가져오기](#3-fusion-앱-템플릿-가져오기)
+    4. [데이터소스 실행](#4-데이터소스-실행)
+    5. [Signal 생성](#5-signal-생성)
+    6. [추천 데이터 생성](#6-추천-데이터-생성)
+    7. [App Studio 실행](#7-App-Studio-실행)
 
 ___
 
@@ -216,11 +215,3 @@ $ ./app-studio start -t 300
 |Typeahead |
 |-----------|
 |<img src="../readme-images/7-app-studio/app-studio-typeahead.png" height="300"/>|
-
-<br><br>
-
-## 추가 리소스
-
-### Jupyter Notebook 예제
-
-*추후 추가 예정*
