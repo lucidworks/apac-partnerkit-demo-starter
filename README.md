@@ -9,6 +9,7 @@ Updated : Dec 21, 2020
 **Table of Contents**
 
 - [Partner Demo Kit](#partner-demo-kit)
+- [License](#license)
   - [Introduction](#introduction)
   - [Get Started](#get-started)
     - [1. Install Fusion](#1-install-fusion)
@@ -19,11 +20,16 @@ Updated : Dec 21, 2020
     - [6. Generate Recommendations](#6-generate-recommendations)
     - [7. Start App Studio](#7-start-app-studio)
 
+
 ___
 
 ## Introduction
 
 This is a starter demo template for Lucidworks partners. It contains a pre-configured Fusion App and an end user search application built using Lucidworks' App Studio.
+
+## License
+
+App Studio Enterprise comes with a 30-day trial license in `app-studio.lic`. Once this expires, contact your regional Lucidworks representative or contact Lucidworks via the website for a new license: https://lucidworks.com/company/contact/.
 
 ## Get Started
 

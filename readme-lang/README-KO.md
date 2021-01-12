@@ -3,6 +3,7 @@
 **목차**
 
 - [소개](#소개)
+- [라이선스](#라이선스)
 - [시작하기](#시작하기)
   1. [Fusion 설치](#1-fusion-설치)
   2. [Fusion 앱 템플릿 준비](#2-fusion-앱-템플릿-준비)
@@ -19,6 +20,10 @@ ___
 ## 소개
 
 Lucidworks 파트너를 위한 스타터 데모 템플릿입니다. 미리 구성된 Fusion App과 Lucidworks의 App Studio를 사용하여 빌드 된 사용자 검색 애플리케이션이 포함되어 있습니다.
+
+## 라이선스
+
+App Studio Enterprise는 30 일 평가판 라이선스 'app-studio.lic'와 함께 제공됩니다. 만료되면 해당 지역 담당자에게 문의하거나 Lucidworks 웹사이트를 방문하여 새 라이선스를 요청하십시오 : https://lucidworks.com/company/contact/.
 
 ## 시작하기
 
