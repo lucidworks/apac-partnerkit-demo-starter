@@ -194,7 +194,7 @@ Example:
 
 This starter template is a modified version of the App Studio Enterprise (ASE) 4.11.0 which uses Appkit version 4.11.0. The original ASE packages are available for download [here](https://doc.lucidworks.com/app-studio/4.2/concepts/app-studio-enterprise/download.html). Note that you can upgrade the Appkit version of your App Studio project using the instructions [here](https://doc.lucidworks.com/how-to/upgrade-appkit.html).
 
-**Note: Fusion 4.x, 5.0.x, and 5.1.x are compatible with Appkit version 4.10.0 and below while Fusion 5.2.x is compatible with Appkit version 4.11.0 and above.**
+**Note: Fusion 4.x, 5.0.x, and 5.1.x are compatible with Appkit versions 4.10.0 and earlier.**
 
 Use the start method below during development and for production, package your search application in a Java WAR file or Java JAR file. For more information, see [Deployment Overview](https://doc.lucidworks.com/app-studio/4.2/reference/app-deployment/index.html).
 
