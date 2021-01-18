@@ -1,6 +1,6 @@
 # Partner Demo Kit
 
-This is a Korean Translation based on original readme updated on Jan 12, 2021.<br>
+This is a Korean Translation based on original readme updated on Jan 17, 2021.<br>
 [English README.md is here](../README.md)
 
 **목차**
@@ -183,6 +183,10 @@ Example:
 
 > App Studio에 익숙하지 않은 경우 [Fusion App Studio](https://doc.lucidworks.com/app-studio/latest/index.html)를 참조하십시오. <br>
 > 데모를 설정하기 위해 App Studio에 대한 이해가 필요하지는 않습니다.
+
+이 스타터 템플릿은 Appkit 버전 4.11.0을 사용하는 App Studio Enterprise (ASE) 4.11.0의 수정 된 버전입니다. 원본 ASE 패키지는 [여기](https://doc.lucidworks.com/app-studio/4.2/concepts/app-studio-enterprise/download.html)에서 다운로드 할 수 있습니다 또한 [How to upgrade Appkit](https://doc.lucidworks.com/how-to/upgrade-appkit.html)에서 App Studio 프로젝트의 Appkit 버전을 업그레이드 하는 방법을 확인하실 수 있습니다.
+
+**참고: Fusion 4.x, 5.0.x 및 5.1.x는 Appkit 버전 4.10.0 및 이전 버전과 호환됩니다.**
 
 아래 실행 방법은 개발환경에서 테스트를 하는 단계에서 사용하시고 개발이 완료된 후에 실제 production에 배포할 시에는 Java WAR 또는 Java JAR로 배포하십시오. 자세한 내용은 [Deployment Overview](https://doc.lucidworks.com/app-studio/4.2/reference/app-deployment/index.html)를 참고하세요.
 
