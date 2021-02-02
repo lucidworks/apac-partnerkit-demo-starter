@@ -2254,6 +2254,14 @@
         "key" : "rows",
         "value" : "5",
         "policy" : "replace"
+      }, {
+        "key" : "fq",
+        "value" : "itemId:${itemId}",
+        "policy" : "append"
+      }, {
+        "key" : "sort",
+        "value" : "sim desc",
+        "policy" : "append"
       } ]
     }, {
       "id" : "partnerkit_recommendation_items_for_item_content",

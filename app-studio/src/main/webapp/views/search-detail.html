@@ -32,7 +32,7 @@
         <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter>
     </search:query> -->
 
-    <!-- Items for item recommendation (ALS) -->
+    <!-- Items for item recommendation(Signal-based) -->
     <search:query var="itemRecsQuery" parameters="-" rpp="3">
         <query:custom name="itemId" value="{{pageId}}"></query:custom>
         <!-- <query:filter field="id" value="{{pageId}}" exclude="true"></query:filter> -->
