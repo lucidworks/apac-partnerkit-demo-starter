@@ -29,7 +29,7 @@
 <!--
 This platform configuration returns information for item recommendations for user
 -->
-<search:platform var="queryRecsPlatform" conf="platforms.fusion.recommendations.queries-for-query"></search:platform>
+<search:platform var="queryRecsPlatform" conf="platforms.fusion.recommendations.queries_for_query"></search:platform>
 <search:query var="queryRecsQuery" parameters="*" rpp="10"></search:query>
 <search:response var="queryRecsResponse" platform="queryRecsPlatform" query="queryRecsQuery">
     <widget:spinner></widget:spinner>
