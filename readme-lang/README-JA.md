@@ -1,6 +1,6 @@
 # パートナー デモキット
 
-This is a Japanese Translation based on original readme updated on Dec 21, 2020.<br>
+This is a Japanese Translation based on original readme updated on Jul 28, 2021.<br>
 [English README.md is here](../README.md)
 
 **もくじ**
@@ -32,17 +32,17 @@ Fusion 5 のインストールに関するインスタクションについて�
 
 ### 2. Fusion App テンプレートの準備
 
-1. chmod [setup.sh](../setup.sh) の実行
+1. chmod [setup-1.sh](../setup-1.sh) の実行
 
-    `setup.sh` ファイルに実行権を付与する。
+    `setup-1.sh` ファイルに実行権を付与する。
 
     ```sh
-    chmod +x setup.sh
+    chmod +x setup-1.sh
     ```
 
-2. [setup.sh](../setup.sh) スクリプトの実行
+2. [setup-1.sh](../setup-1.sh) スクリプトの実行
 
-    `setup.sh`スクリプトは、環境に従ってテンプレート内のファイルの必要なパラメータを変更するのみです。アプリやモジュールのインストール自体は実行しません。
+    `setup-1.sh`スクリプトは、環境に従ってテンプレート内のファイルの必要なパラメータを変更するのみです。アプリやモジュールのインストール自体は実行しません。
 
     スクリプトを実行前に、以下の5つの値を事前に確認しておく必要があります。
     * -h : fusion host名 (例: localhost)
@@ -51,32 +51,47 @@ Fusion 5 のインストールに関するインスタクションについて�
     * -a : fusion app名 (新しい名前を定義)
     * -t : 各検索ページで使用するタイトル (検索 UI のタイトル)
 
-    **注: Fusion app名に空白が含まれている場合、アンダースコアに置き換えられます。また、fusion app名は、query profile、query pipeline、jobなど、多くの設定名の接頭詞として使用されます**
+    <br>
+
+    > **注:** Fusion app名に空白が含まれている場合、アンダースコアに置き換えられます。また、fusion app名は、query profile、query pipeline、jobなど、多くの設定名の接頭詞として使用されます**
 
     ```sh
     # 実行例
     # Nike
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
 
     # Digital Workplace
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
 
     # Hardware Supply Company
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-    この`setup.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json](../fusion-app/object.json) ファイルの内容を変更します。
+    この`setup-1.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json](../fusion-app/object.json) ファイルの内容を変更します。
 
     例えば、以下を実行した場合：
 
     ```sh
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
     [objects.json](../fusion-app/object.json) は以下のように変更されます。
 
     | 変更前          | 変更後         |
     | :-------------: |:-------------:| 
     |![object.json before](../readme-images/2-prepare-app-template/object-json-before.png)|![object.json after](../readme-images/2-prepare-app-template/object-json-after.png)|
+
+
+3. [setup-2.py](./setup-2.py)  スクリプトの実行
+
+    >  このスクリプトを実行する前に、システムにPython3がインストールされていることを確認してください。
+    
+    このPythonスクリプトは、objects.jsonファイルを読み取り、特定の構成のID値を変更します。
+    
+    これは、特定の構成が、単一のFusionアプリだけでなく、単一のFusionインスタンス全体で一意である必要があるためです。
+
+    ```sh
+    python3 setup-2.py
+    ```
 
 ### 3. Fusion App Templateのインポート
 
@@ -90,6 +105,9 @@ App templateをインポートして、新しい fusion appを作成します。
 3. `object.json ` を選択
     <br><img src="../readme-images/3-import-fusion-app-template/import-app.png" height="200" width="auto"/>
 4. **Import**をクリック
+
+    Fusionインスタンスにすでにblob`stopwords / stopwords_en.txt`がある場合は、以下の競合警告が表示される場合があります。 'Merge'ボタンをクリックすると、競合するファイルがスキップされ、インポートが続行されます。
+    <br><img src="readme-images/3-import-fusion-app-template/conflict-msg.png" height="300" width="auto"/>
 
 5. appがインポートされたか事を確認
     <br><img src="../readme-images/3-import-fusion-app-template/fusion-admin-ui-launcher.png" height="200" width="auto"/>

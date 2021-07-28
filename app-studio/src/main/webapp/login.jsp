@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>App Studio Enterprise</title>
+    <title>Starter App</title>
     <base href="${app:contextPath(pageContext.request)}/"/>
     <meta name="description" content="">
     <meta name="author" content="Twigkit">
@@ -30,7 +30,7 @@
         branding-class="branding"
         logo="${app:contextPath(pageContext.request)}${'/assets/squarelogo.png'}"
         logo-width="136"
-        title="App Studio Enterprise"
+        title="Starter App"
         title-element="h1"
         username-class="field required field-email"
         username-label="Username"

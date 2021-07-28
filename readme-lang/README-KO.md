@@ -1,6 +1,6 @@
 # Partner Demo Kit
 
-This is a Korean Translation based on original readme updated on Jan 17, 2021.<br>
+This is a Korean Translation based on original readme updated on Jul 28, 2021.<br>
 [English README.md is here](../README.md)
 
 **목차**
@@ -37,15 +37,15 @@ Fusion 5 설치에 대한 자세한 내용은 [Fusion Cloud Native on Kubernetes
 
 ### 2. Fusion 앱 템플릿 준비
 
-1. [setup.sh](../setup.sh) 파일 액세스 권한 수정
+1. [setup-1.sh](../setup-1.sh) 파일 액세스 권한 수정
 
     ```sh
-    chmod +x setup.sh
+    chmod +x setup-1.sh
     ```
 
-2. [setup.sh](../setup.sh) 파일 실행
+2. [setup-1.sh](../setup-1.sh) 파일 실행
 
-    이 `setup.sh` 스크립트는 아래 제공된 환경 조건에 따라 매개 변수를 변경합니다. 이 스크립트를 실행함으로써 퓨전 앱 설치 또는 앱스투디오 실행이되는 것은 아닙니다.
+    이 `setup-1.sh` 스크립트는 아래 제공된 환경 조건에 따라 매개 변수를 변경합니다. 이 스크립트를 실행함으로써 퓨전 앱 설치 또는 앱스투디오 실행이되는 것은 아닙니다.
 
     스크립트를 실행하려면 준비해야하는 5 개의 필수 값이 있습니다:
     * -h : Fusion 호스트 이름 (e.g. localhost)
@@ -54,32 +54,47 @@ Fusion 5 설치에 대한 자세한 내용은 [Fusion Cloud Native on Kubernetes
     * -a : Fusion 엡 이름 (a new name for you to define )
     * -t : 검색 어플리케이션 이름 (검색 UI 이름)
 
-    **비고: Fusion 앱 이름에 공백이 있으면 해당 공백이 밑줄로 바뀝니다. 또한 Fusion 앱 이름의 경우 Query Profile, Query Pipeline, Job 등의 많은 구성 이름에 접두사로 붙기 때문에 짧은 이름 또는 약자를 사용하는게 좋습니다.**
+    <br>
+
+    > **비고:** Fusion 앱 이름에 공백이 있으면 해당 공백이 밑줄로 바뀝니다. 또한 Fusion 앱 이름의 경우 Query Profile, Query Pipeline, Job 등의 많은 구성 이름에 접두사로 붙기 때문에 짧은 이름 또는 약자를 사용하는게 좋습니다.
 
     ```sh
     # Sample Commands
     # Nike
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
 
     # Digital Workplace
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
 
     # Hardware Supply Company
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-     `setup.sh` 스크립트를 실행했다면 [objects.json](../fusion-app/object.json) 파일의 내용 중 *partnerkit*이라는 스트링이 스크립트 실행시 `-a` 플래그(flag)로 정의한  Fusion 앱 이름으로 변경되어 있을 것입니다.
+     `setup-1.sh` 스크립트를 실행했다면 [objects.json](../fusion-app/object.json) 파일의 내용 중 *partnerkit*이라는 스트링이 스크립트 실행시 `-a` 플래그(flag)로 정의한  Fusion 앱 이름으로 변경되어 있을 것입니다.
 
     예를 들어, 아래와 같이 실행을하게되면:
 
     ```sh
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
     [objects.json](../fusion-app/object.json) 파일은 아래와 같이 변경되었을 것입니다:
 
     | Before          | After         |
     | :-------------: |:-------------:| 
     |![object.json before](../readme-images/2-prepare-app-template/object-json-before.png)|![object.json after](../readme-images/2-prepare-app-template/object-json-after.png)|
+
+
+3. [setup-2.py](./setup-2.py) 파이썬 스크립트 실행
+
+    >  이 스크립트를 실행하기 전에 시스템에 Python 3 이 설치되어 있는지 확인하십시오.
+    
+    이 python 스크립트는 objects.json 파일을 읽고 특정 구성의 ID 값을 수정합니다.
+    
+    이는 특정 구성이 단일 Fusion 앱이 아니라 단일 Fusion 인스턴스 전체에서 고유해야 하기 때문입니다.
+
+    ```sh
+    python3 setup-2.py
+    ```
 
 ### 3. Fusion 앱 템플릿 가져오기
 
@@ -95,6 +110,10 @@ Fusion 앱 가져오기(Import) 기능을 활용하여 새로운 Fusion 앱 생�
     <!-- ![object.json before](../readme-images/import-app.png | height=100) -->
     <br><img src="../readme-images/3-import-fusion-app-template/import-app.png" height="300" width="auto"/>
 4. **Import** 클릭
+
+    Fusion 인스턴스에 이미 blob `stopwords/stopwords_en.txt`가 있는 경우 아래 충돌 경고가 표시될 수 있습니다. 충돌하는 파일을 건너뛰고 가져오기를 진행하는 'Merge' 버튼을 클릭합니다.
+    <br><img src="readme-images/3-import-fusion-app-template/conflict-msg.png" height="300" width="auto"/>
+
 5. 앱 가져오기가 정상적으로 완료되었는지 확인
     <br><img src="../readme-images/3-import-fusion-app-template/fusion-admin-ui-launcher.png" height="300" width="auto"/>
 

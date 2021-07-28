@@ -10,7 +10,7 @@
 <head>
     <base href="${app:contextPath(pageContext.request)}/"/>
     <meta charset="utf-8">
-    <title>App Studio Enterprise</title>
+    <title>Starter App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 

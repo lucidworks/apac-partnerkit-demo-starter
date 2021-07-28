@@ -1,0 +1,207 @@
+[2021-07-28 16:17:01] ========== START ==========
+[2021-07-28 16:17:01] Script has started
+[2021-07-28 16:17:01] ===========================
+[2021-07-28 16:17:01] The base directory is /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter
+[2021-07-28 16:17:01] Logs can be found in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/setup.log
+[2021-07-28 16:17:01] -
+[2021-07-28 16:17:01] 1. INITIALISE
+[2021-07-28 16:17:01]   1-1. Check that required files and directories exist
+[2021-07-28 16:17:01]           app-studio directory found, proceeding
+[2021-07-28 16:17:01]           objects.json file found, proceeding
+[2021-07-28 16:17:01] 2. APP STUDIO
+[2021-07-28 16:17:01]   2-1. Modify App Studio configuration files
+[2021-07-28 16:17:01]           Modifying Fusion server hostname to test.com in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:01]           Modifying Fusion server port to 6764 in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:01]           Modifying Fusion protocol to http in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:01]           Modifying app name 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/twigkit.conf
+[2021-07-28 16:17:01]           Modifying app name 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/social.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/message/service/fusion.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/data/documents/search.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item_content.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_user.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/queries_for_query.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_clicks.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_searches.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_global_clicks.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_searches_tagcloud.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_user_searches.conf
+[2021-07-28 16:17:01]           Modifying query profile prefix from 'Testing' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/typeahead.conf
+[2021-07-28 16:17:01]   2-2. Modify App Studio HTML pages
+[2021-07-28 16:17:01]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/summary.html
+[2021-07-28 16:17:01]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search.html
+[2021-07-28 16:17:01]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search-detail.html
+[2021-07-28 16:17:01]           Modifying login form title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:17:01]   App Studio configuration changes done.
+[2021-07-28 16:17:01] 3. FUSION APP
+[2021-07-28 16:17:01]   3-1. Replace placeholder string 'Testing' to 'partnerkittwo' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:17:01]   3-2. Replace placeholder string 'Testing' to 'partnerkittwo' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:17:01] ========== END ==========
+[2021-07-28 16:17:01] Script has completed
+[2021-07-28 16:17:01] =========================
+[2021-07-28 16:17:46] ========== START ==========
+[2021-07-28 16:17:46] Script has started
+[2021-07-28 16:17:46] ===========================
+[2021-07-28 16:17:46] The base directory is /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter
+[2021-07-28 16:17:46] Logs can be found in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/setup.log
+[2021-07-28 16:17:46] -
+[2021-07-28 16:17:46] 1. INITIALISE
+[2021-07-28 16:17:46]   1-1. Check that required files and directories exist
+[2021-07-28 16:17:46]           app-studio directory found, proceeding
+[2021-07-28 16:17:46]           objects.json file found, proceeding
+[2021-07-28 16:17:46] 2. APP STUDIO
+[2021-07-28 16:17:46]   2-1. Modify App Studio configuration files
+[2021-07-28 16:17:46]           Modifying Fusion server hostname to test.com in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:46]           Modifying Fusion server port to 6764 in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:46]           Modifying Fusion protocol to http in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:17:46]           Modifying app name 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/twigkit.conf
+[2021-07-28 16:17:46]           Modifying app name 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/social.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/message/service/fusion.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/data/documents/search.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item_content.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_user.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/queries_for_query.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_clicks.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_searches.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_global_clicks.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_searches_tagcloud.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_user_searches.conf
+[2021-07-28 16:17:46]           Modifying query profile prefix from 'partnerkit' to 'partnerkittwo' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/typeahead.conf
+[2021-07-28 16:17:46]   2-2. Modify App Studio HTML pages
+[2021-07-28 16:17:46]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/summary.html
+[2021-07-28 16:17:46]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search.html
+[2021-07-28 16:17:46]           Modifying page title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search-detail.html
+[2021-07-28 16:17:46]           Modifying login form title (Partner Kit Two) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:17:46]   App Studio configuration changes done.
+[2021-07-28 16:17:46] 3. FUSION APP
+[2021-07-28 16:17:46]   3-1. Replace placeholder string 'partnerkit' to 'partnerkittwo' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:17:46]   3-2. Replace placeholder string 'partnerkit' to 'partnerkittwo' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:17:46] ========== END ==========
+[2021-07-28 16:17:46] Script has completed
+[2021-07-28 16:17:46] =========================
+[2021-07-28 16:37:08] ========== START ==========
+[2021-07-28 16:37:08] Script has started
+[2021-07-28 16:37:08] ===========================
+[2021-07-28 16:37:08] The base directory is /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter
+[2021-07-28 16:37:08] Logs can be found in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/setup.log
+[2021-07-28 16:37:08] -
+[2021-07-28 16:37:08] 1. INITIALISE
+[2021-07-28 16:37:08]   1-1. Check that required files and directories exist
+[2021-07-28 16:37:08]           app-studio directory found, proceeding
+[2021-07-28 16:37:08]           objects.json file found, proceeding
+[2021-07-28 16:37:08] 2. APP STUDIO
+[2021-07-28 16:37:08]   2-1. Modify App Studio configuration files
+[2021-07-28 16:37:08]           Modifying Fusion server hostname to test.com in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:37:08]           Modifying Fusion server port to 6764 in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:37:08]           Modifying Fusion protocol to http in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:37:08]           Modifying app name 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/twigkit.conf
+[2021-07-28 16:37:08]           Modifying app name 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/social.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/message/service/fusion.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/data/documents/search.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item_content.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_user.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/queries_for_query.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_clicks.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_searches.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_global_clicks.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_searches_tagcloud.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_user_searches.conf
+[2021-07-28 16:37:08]           Modifying query profile prefix from 'partnerkittwo' to 'partnerkit' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/typeahead.conf
+[2021-07-28 16:37:08]   2-2. Modify App Studio HTML pages
+[2021-07-28 16:37:08]           Modifying page title (partnerkit) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/summary.html
+[2021-07-28 16:37:08]           Modifying page title (partnerkit) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search.html
+[2021-07-28 16:37:08]           Modifying page title (partnerkit) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search-detail.html
+[2021-07-28 16:37:08]           Modifying login form title (partnerkit) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:37:08]   App Studio configuration changes done.
+[2021-07-28 16:37:08] 3. FUSION APP
+[2021-07-28 16:37:08]   3-1. Replace placeholder string 'partnerkittwo' to 'partnerkit' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:37:08]   3-2. Replace placeholder string 'partnerkittwo' to 'partnerkit' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:37:08] ========== END ==========
+[2021-07-28 16:37:08] Script has completed
+[2021-07-28 16:37:08] =========================
+[2021-07-28 16:50:47] ========== START ==========
+[2021-07-28 16:50:47] Script has started
+[2021-07-28 16:50:47] ===========================
+[2021-07-28 16:50:47] The base directory is /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter
+[2021-07-28 16:50:47] Logs can be found in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/setup.log
+[2021-07-28 16:50:47] -
+[2021-07-28 16:50:47] 1. INITIALISE
+[2021-07-28 16:50:47]   1-1. Check that required files and directories exist
+[2021-07-28 16:50:47]           app-studio directory found, proceeding
+[2021-07-28 16:50:47]           objects.json file found, proceeding
+[2021-07-28 16:50:47] 2. APP STUDIO
+[2021-07-28 16:50:47]   2-1. Modify App Studio configuration files
+[2021-07-28 16:50:47]           Modifying Fusion server hostname to test.com in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:50:47]           Modifying Fusion server port to 6764 in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:50:47]           Modifying Fusion protocol to http in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:50:47]           Modifying app name 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/twigkit.conf
+[2021-07-28 16:50:47]           Modifying app name 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/social.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/message/service/fusion.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/data/documents/search.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item_content.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_user.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/queries_for_query.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_clicks.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_searches.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_global_clicks.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_searches_tagcloud.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_user_searches.conf
+[2021-07-28 16:50:47]           Modifying query profile prefix from 'partnerkittwo' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/typeahead.conf
+[2021-07-28 16:50:47]   2-2. Modify App Studio HTML pages
+[2021-07-28 16:50:47]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/summary.html
+[2021-07-28 16:50:47]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search.html
+[2021-07-28 16:50:47]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search-detail.html
+[2021-07-28 16:50:47]           Modifying login.jsp title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:50:47]           Modifying index.jsp title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:50:47]   App Studio configuration changes done.
+[2021-07-28 16:50:47] 3. FUSION APP
+[2021-07-28 16:50:47]   3-1. Replace placeholder string 'partnerkittwo' to 'starterapp' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:50:47]   3-2. Replace placeholder string 'partnerkittwo' to 'starterapp' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:50:47] ========== END ==========
+[2021-07-28 16:50:47] Script has completed
+[2021-07-28 16:50:47] =========================
+[2021-07-28 16:51:20] ========== START ==========
+[2021-07-28 16:51:20] Script has started
+[2021-07-28 16:51:20] ===========================
+[2021-07-28 16:51:20] The base directory is /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter
+[2021-07-28 16:51:20] Logs can be found in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/setup.log
+[2021-07-28 16:51:20] -
+[2021-07-28 16:51:20] 1. INITIALISE
+[2021-07-28 16:51:20]   1-1. Check that required files and directories exist
+[2021-07-28 16:51:20]           app-studio directory found, proceeding
+[2021-07-28 16:51:20]           objects.json file found, proceeding
+[2021-07-28 16:51:20] 2. APP STUDIO
+[2021-07-28 16:51:20]   2-1. Modify App Studio configuration files
+[2021-07-28 16:51:20]           Modifying Fusion server hostname to test.com in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:51:20]           Modifying Fusion server port to 6764 in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:51:20]           Modifying Fusion protocol to http in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/services/api/fusion.conf
+[2021-07-28 16:51:20]           Modifying app name 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/twigkit.conf
+[2021-07-28 16:51:20]           Modifying app name 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/social.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/message/service/fusion.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/data/documents/search.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item_content.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_item.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/items_for_user.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/recommendations/queries_for_query.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_clicks.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/recent_user_searches.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_global_clicks.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_searches_tagcloud.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/signals/top_user_searches.conf
+[2021-07-28 16:51:20]           Modifying query profile prefix from 'partnerkit' to 'starterapp' in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/resources/conf/platforms/fusion/typeahead.conf
+[2021-07-28 16:51:20]   2-2. Modify App Studio HTML pages
+[2021-07-28 16:51:20]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/summary.html
+[2021-07-28 16:51:20]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search.html
+[2021-07-28 16:51:20]           Modifying page title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/views/search-detail.html
+[2021-07-28 16:51:20]           Modifying login.jsp title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:51:20]           Modifying index.jsp title (Starter App) in file /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/app-studio/src/main/webapp/login.jsp
+[2021-07-28 16:51:20]   App Studio configuration changes done.
+[2021-07-28 16:51:20] 3. FUSION APP
+[2021-07-28 16:51:20]   3-1. Replace placeholder string 'partnerkit' to 'starterapp' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:51:20]   3-2. Replace placeholder string 'partnerkit' to 'starterapp' in /Users/clairedo/Documents/GitHub/apac-partnerkit-demo-starter/fusion-app/objects.json
+[2021-07-28 16:51:20] ========== END ==========
+[2021-07-28 16:51:20] Script has completed
+[2021-07-28 16:51:20] =========================

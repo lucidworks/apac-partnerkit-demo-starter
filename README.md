@@ -1,7 +1,7 @@
 cat README.md
 # Partner Demo Kit
 
-Updated : Jan 17, 2021
+Updated : Jul 28, 2021
 
 - [한글](readme-lang/README-KO.md)
 - [日本語READMEはこちら](readme-lang/README-JA.md)
@@ -35,23 +35,23 @@ App Studio Enterprise comes with a 30-day trial license in `app-studio.lic`. Onc
 
 ### 1. Install Fusion
 
-This starter demo template was created using Fusion 5.3. You could try to use this on later versions of Fusion 5, but there is no guarantee that it will work.
+This starter demo template was created using Fusion 5.4. You could try to use this on later versions of Fusion 5, but there is no guarantee that it will work.
 
 For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](https://github.com/lucidworks/fusion-cloud-native).
 
 ### 2. Prepare Fusion App Template
 
-1. chmod [setup.sh](./setup.sh)
+1. chmod [setup-1.sh](./setup-1.sh)
 
-    Modify the access permission of `setup.sh` file.
+    Modify the access permission of `setup-1.sh` file.
 
     ```sh
-    chmod +x setup.sh
+    chmod +x setup-1.sh
     ```
 
-2. Run the [setup.sh](./setup.sh) script
+2. Run the [setup-1.sh](./setup-1.sh) script
 
-    This `setup.sh` script will only change the parameters according to your environent provided below. (this will not actually start installing apps or any modules)
+    This `setup-1.sh` script will only change the parameters according to your environent provided below. (this will not actually start installing apps or any modules)
 
     To run the script, there are five mandatory values that you must have ready:
     * -h : the fusion hostname (e.g. localhost)
@@ -60,18 +60,20 @@ For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](
     * -a : the fusion app name (a new name for you to define )
     * -t : the title to use on the search and pages (a title for your search UI)
 
-    **Note: If the fusion app name contains any whitespaces, they will be replaced with underscores. Also, for the fusion app name, use a short name or acronym as it gets prefixed to many configuration names such as Query Profiles, Query Pipelines, Jobs, and others.**
+    <br>
+
+    > **Note:** If the fusion app name contains any whitespaces, they will be replaced with underscores. Also, for the fusion app name, use a short name or acronym as it gets prefixed to many configuration names such as Query Profiles, Query Pipelines, Jobs, and others.
 
     ```sh
     # Sample Commands
     # Nike
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Nike' -t 'Nike Online'
 
     # Digital Workplace
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Workplace' -t 'Digital Workplace'
 
     # Hardware Supply Company
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
     The setup script in the previous stage should have modified the contents of the [objects.json](./fusion-app/object.json) file to change all occurences of the Fusion App name from `partnerkit` to what you had defined.
@@ -79,13 +81,26 @@ For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](
     For example, if you ran:
 
     ```sh
-    $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
+    $ ./setup-1.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
     Your [objects.json](./fusion-app/object.json) file should have changed like so:
 
     | Before          | After         |
     | :-------------: |:-------------:|
     |![object.json before](readme-images/2-prepare-app-template/object-json-before.png)|![object.json after](readme-images/2-prepare-app-template/object-json-after.png)|
+
+3. Run the [setup-2.py](./setup-2.py) python script
+
+    >  Make sure you have Python 3 installed on your system before running this script.
+    
+    This python script reads the objects.json file and modifies the ID values for certain configurations.
+    
+    This is because certain configurations need to be unique throughout a single Fusion instance, and not just a single Fusion App.
+
+    ```sh
+    python3 setup-2.py
+    ```
+
 
 ### 3. Import Fusion App Template
 
@@ -101,6 +116,10 @@ Create a new Fusion app by importing the app template.
     <!-- ![object.json before](readme-images/import-app.png | height=100) -->
     <br><img src="readme-images/3-import-fusion-app-template/import-app.png" height="300" width="auto"/>
 4. Click **Import**
+    
+    If your Fusion instances already has the blob `stopwords/stopwords_en.txt` you may receive the below conflict warning. Click on the 'Merge' button which will skip the conflicting file and proceed with import.
+    <br><img src="readme-images/3-import-fusion-app-template/conflict-msg.png" height="300" width="auto"/>
+    
 5. Check that the app has been imported successfully
     <br><img src="readme-images/3-import-fusion-app-template/fusion-admin-ui-launcher.png" height="300" width="auto"/>
 
