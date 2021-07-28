@@ -68,14 +68,14 @@ Fusion 5 설치에 대한 자세한 내용은 [Fusion Cloud Native on Kubernetes
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-     `setup.sh` 스크립트를 실행했다면 [objects.json](../fusion-app/partnerkit/object.json) 파일의 내용 중 *partnerkit*이라는 스트링이 스크립트 실행시 `-a` 플래그(flag)로 정의한  Fusion 앱 이름으로 변경되어 있을 것입니다.
+     `setup.sh` 스크립트를 실행했다면 [objects.json](../fusion-app/object.json) 파일의 내용 중 *partnerkit*이라는 스트링이 스크립트 실행시 `-a` 플래그(flag)로 정의한  Fusion 앱 이름으로 변경되어 있을 것입니다.
 
     예를 들어, 아래와 같이 실행을하게되면:
 
     ```sh
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
-    [objects.json](../fusion-app/partnerkit/object.json) 파일은 아래와 같이 변경되었을 것입니다:
+    [objects.json](../fusion-app/object.json) 파일은 아래와 같이 변경되었을 것입니다:
 
     | Before          | After         |
     | :-------------: |:-------------:| 

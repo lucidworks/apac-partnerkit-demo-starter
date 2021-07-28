@@ -74,14 +74,14 @@ For instuctions on installing Fusion 5, see [Fusion Cloud Native on Kubernetes](
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-    The setup script in the previous stage should have modified the contents of the [objects.json](./fusion-app/partnerkit/object.json) file to change all occurences of the Fusion App name from `partnerkit` to what you had defined.
+    The setup script in the previous stage should have modified the contents of the [objects.json](./fusion-app/object.json) file to change all occurences of the Fusion App name from `partnerkit` to what you had defined.
 
     For example, if you ran:
 
     ```sh
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
-    Your [objects.json](./fusion-app/partnerkit/object.json) file should have changed like so:
+    Your [objects.json](./fusion-app/object.json) file should have changed like so:
 
     | Before          | After         |
     | :-------------: |:-------------:|

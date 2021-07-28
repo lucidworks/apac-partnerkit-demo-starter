@@ -65,14 +65,14 @@ Fusion 5 のインストールに関するインスタクションについて�
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'https' -a 'Hardware Supply' -t 'Hardware Supply'
     ```
 
-    この`setup.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json](../fusion-app/partnerkit/object.json) ファイルの内容を変更します。
+    この`setup.sh` スクリプトは、Fusion app名を 'partnerkit' から、定義した新しい名前に変更するために、[objects.json](../fusion-app/object.json) ファイルの内容を変更します。
 
     例えば、以下を実行した場合：
 
     ```sh
     $ ./setup.sh -h 'my.fusionhost.com' -p 6764 -s 'http' -a 'Workplace' -t 'Digital Workplace'
     ```
-    [objects.json](../fusion-app/partnerkit/object.json) は以下のように変更されます。
+    [objects.json](../fusion-app/object.json) は以下のように変更されます。
 
     | 変更前          | 変更後         |
     | :-------------: |:-------------:| 
