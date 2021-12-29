@@ -5,9 +5,8 @@
  * @author Claire Do
  *
  * @description
- * Word cloud visualization for trending searches using AnyChart (https://www.anychart.com)
- * NOTE!! AnyChart is a commercial product. Code in this project serves as an example of the library's capabilities
- * To use AnyChart in implementations, contact https://www.anychart.com/buy/ 
+ * Word cloud visualization for trending searches using wordcloud2 (https://github.com/timdream/wordcloud2.js)
+ * See license -> https://github.com/timdream/wordcloud2.js/blob/gh-pages/LICENSE
  */  
 /*@ngInject*/
 export function wordCloud($document) {
@@ -20,63 +19,57 @@ export function wordCloud($document) {
                 // console.log("wordCloudDirective=======");
 
                 setTimeout(function(){
-                    var currentPage = document.getElementById("summaryPage");
-                    var response = angular.element(currentPage).scope().trendingSearchesResponse.facets.query_alias.filters;
-                    // console.log(response);
+                    // Proceed only if there is data to for wordcloud
+                    if($scope.wordcloudData != null && $scope.wordcloudData.facets != null) {
 
-                    var data = [];
+                        var canvas = document.getElementById($attrs.name);
+                        var response = $scope.wordcloudData.facets.query_alias.filters;
 
-                    var wordCloudTitle = "Global trending searches";
-
-                    for(var i=0; i < response.length; i++) {
-                        var item = response[i];
-
-                        data.push({
-                            "x": item.val,
-                            "value": item.count
-                        });
+                        var list = [];
+                        for (var i=0; i < response.length; i++) {
+                            var item = response[i];
+                            list.push([item["val"], item["count"]])
+    
+                            if(i > 15) {
+                                break;
+                            }
+                        }
+                        
+                        // WordCloud.minFontSize = "26px";
+                        WordCloud(canvas, { 
+                            list: list,
+                            shape: "triangle",
+                            gridSize: Math.round(16 * canvas.offsetWidth / 1024),
+                            weightFactor: function (size) {
+                                return Math.pow(size, 2.3) * canvas.offsetWidth / 1024;
+                            },
+                            fontFamily: 'Helvetica',
+                            // color: function (word, weight) {
+                            //     return (weight === 12) ? '#f02222' : '#c09292';
+                            // },
+                            rotateRatio: 0,
+                            rotationSteps: 2,
+                            backgroundColor: '#ffffff',
+                            classes: "wordcloud-item",
+                            click: function(item, dimension, event) {
+                                // console.log(item[0]);
+                                $location.url('/search?q='+item[0]);
+                            },
+                            // hover: function(item, dimension, event) {
+                            //     // console.log(item[0]);
+                            //     document.getElementById("wordcloudTooltip").innerHTML = item[0];
+                            //     document.getElementById("wordcloudTooltip").style.display = "block";
+                            //     console.log("dimension -=-===== ");
+                            //     console.log(dimension);
+                            //     console.log("event -=-===== ");
+                            //     console.log(event);
+                            // }
+                        } );
                     }
-
-                    renderWordCloud("tagCloud", wordCloudTitle, data);
 
                 }, 2000);
 
-                function renderWordCloud(container, title, wordCloudData) {
 
-                    anychart.onDocumentReady(function() {
-                        var data = wordCloudData;
-                      
-                       // create a tag (word) cloud chart
-                        var chart = anychart.tagCloud(data);
-
-                        var background = chart.background();
-                        background.fill({
-                            keys: ['#FFFFFF','#FFFFFF']
-                        });
-                      
-                         // set a chart title
-                        // chart.title(title)
-                        // set an array of angles at which the words will be laid out
-                        chart.angles([0])
-                        // enable a color range
-                        // chart.colorRange(true);
-                        // set the color range length
-                        // chart.colorRange().length('80%');
-                        // chart.mode("rect");
-                        // chart.textSpacing(15);
-                      
-                        // display the word cloud chart
-                        chart.container(container);
-                        chart.draw();
-
-                        // add an event listener
-                        chart.listen("pointClick", function(e){
-                        var url = "/search?q=" + e.point.get("x");
-                        window.open(url, "_self");
-                        });
-                    });
-                    
-                }
             }
         },
         template: function (e, attrs) {

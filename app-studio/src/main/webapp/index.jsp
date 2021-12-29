@@ -19,23 +19,20 @@
 
     <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.ico?v=3" type="image/x-icon"/>
     <link rel="stylesheet" href="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/main.css')}">
-
-    <!-- AnyChart (https://www.anychart.com) -->
-    <!-- NOTE!! AnyChart is a commercial product. Code in this project serves as an example of the library's capabilities  -->
-    <!--        To use AnyChart in implementations, contact https://www.anychart.com/buy/  -->
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
 </head>
 
 <body>
-<ui-view autoscroll="true" class="routes-container"></ui-view>
+        <ui-view autoscroll="true" class="routes-container"></ui-view>
 
-<div class="tk-stl-notifications"></div>
+        <div class="tk-stl-notifications"></div>
 
-<script type="text/javascript"
-        src="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/vendor.bundle.js')}"></script>
-<script type="text/javascript"
-        src="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/app.bundle.js')}"></script>
+        <script type="text/javascript"
+                src="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/vendor.bundle.js')}"></script>
+        <script type="text/javascript"
+                src="${app:contextPath(pageContext.request)}${version:cacheBust('/dist/app.bundle.js')}"></script>
+
+        <!-- World Cloud library -->
+        <script type="text/javascript" src="${app:contextPath(pageContext.request)}${version:cacheBust('/lib/wordcloud/src/wordcloud2.js')}"></script>
 </body>
 
 </html>
